@@ -682,4 +682,12 @@
     });
   }, { threshold: 0.12 });
 
-  doc
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Stagger project cards
+  document.querySelectorAll('.project-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.07}s`;
+  });
+</script>
+</body>
+</html>
