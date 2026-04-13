@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Julian Rincón — CS & AI Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:   #0f1e35;
+      --navy2:  #162845;
+      --blue:   #1B4F8A;
+      --sky:    #2C6FAC;
+      --accent: #3B9EE8;
+      --gold:   #C8963E;
+      --white:  #F7F9FC;
+      --gray:   #8A9AB5;
+      --light:  #EBF2FB;
+      --border: #D5E2F0;
+      --text:   #1A2A3F;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 4rem;
+      background: rgba(247,249,252,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      letter-spacing: -.01em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: .85rem; font-weight: 500; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--gray);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+      padding: 7rem 4rem 4rem;
+      gap: 4rem;
+      background: linear-gradient(135deg, #f7f9fc 0%, #eaf2fb 60%, #ddeaf8 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -120px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(59,158,232,.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -80px; left: 10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(27,79,138,.07) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-text { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-family: 'DM Mono', monospace; font-size: .75rem; font-weight: 500;
+      color: var(--accent); letter-spacing: .12em; text-transform: uppercase;
+      background: rgba(59,158,232,.1); border: 1px solid rgba(59,158,232,.25);
+      padding: .35rem .85rem; border-radius: 100px; margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before { content: '●'; font-size: .5rem; animation: blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.1; color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--blue); }
+    .hero-sub {
+      font-size: 1.1rem; line-height: 1.7; color: #4A6080;
+      max-width: 480px; margin-bottom: 2.5rem;
+    }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem; }
+    .chip {
+      font-family: 'DM Mono', monospace; font-size: .72rem;
+      padding: .3rem .75rem; border-radius: 6px;
+      background: var(--light); border: 1px solid var(--border);
+      color: var(--blue); font-weight: 500;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      padding: .8rem 2rem; background: var(--blue); color: #fff;
+      border: none; border-radius: 8px; font-size: .9rem; font-weight: 600;
+      text-decoration: none; transition: background .2s, transform .15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+    .btn-outline {
+      padding: .8rem 2rem; background: transparent; color: var(--blue);
+      border: 1.5px solid var(--blue); border-radius: 8px;
+      font-size: .9rem; font-weight: 600; text-decoration: none;
+      transition: all .2s; font-family: 'DM Sans', sans-serif;
+    }
+    .btn-outline:hover { background: var(--light); transform: translateY(-1px); }
+
+    .hero-card {
+      position: relative; z-index: 1;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 40px rgba(15,30,53,.1), 0 2px 8px rgba(15,30,53,.06);
+    }
+    .card-header {
+      display: flex; align-items: center; gap: .6rem;
+      margin-bottom: 1.5rem; padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .card-dot.red { background: #FF5F57; }
+    .card-dot.yellow { background: #FFBD2E; }
+    .card-dot.green { background: #28C840; }
+    .card-filename {
+      font-family: 'DM Mono', monospace; font-size: .75rem;
+      color: var(--gray); margin-left: auto;
+    }
+    .code-block {
+      font-family: 'DM Mono', monospace; font-size: .8rem;
+      line-height: 1.9; color: var(--text);
+    }
+    .code-key { color: var(--sky); }
+    .code-str { color: #2E7D32; }
+    .code-arr { color: var(--gold); }
+    .code-punct { color: var(--gray); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-family: 'DM Mono', monospace; font-size: .72rem; font-weight: 500;
+      color: var(--accent); letter-spacing: .15em; text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--navy); line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1rem; color: #4A6080; line-height: 1.7;
+      max-width: 560px; margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: #fff; }
+    .about-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem;
+      align-items: start; max-width: 1100px; margin: 0 auto;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .stat-box {
+      padding: 1.5rem; background: var(--light);
+      border: 1px solid var(--border); border-radius: 12px;
+    }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem; color: var(--blue); display: block;
+    }
+    .stat-label { font-size: .82rem; color: var(--gray); margin-top: .2rem; }
+    .about-right { padding-top: 3.5rem; }
+    .skill-group { margin-bottom: 2rem; }
+    .skill-group-label {
+      font-family: 'DM Mono', monospace; font-size: .7rem; font-weight: 500;
+      color: var(--accent); letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .skill-tag {
+      font-size: .8rem; font-weight: 500;
+      padding: .3rem .8rem; border-radius: 6px;
+      background: #fff; border: 1px solid var(--border);
+      color: var(--text); transition: all .15s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--blue); background: var(--light); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--light); }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    }
+    .project-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.75rem;
+      transition: transform .2s, box-shadow .2s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(15,30,53,.12);
+    }
+    .project-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .project-icon {
+      font-size: 1.8rem; width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--light); border-radius: 12px;
+    }
+    .project-status {
+      font-family: 'DM Mono', monospace; font-size: .65rem; font-weight: 500;
+      padding: .25rem .65rem; border-radius: 100px;
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+    .status-active { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+    .status-done   { background: #E3F2FD; color: #1565C0; border: 1px solid #90CAF9; }
+    .project-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem; color: var(--navy); margin-bottom: .5rem;
+    }
+    .project-desc {
+      font-size: .88rem; color: #4A6080; line-height: 1.6;
+      margin-bottom: 1rem; flex: 1;
+    }
+    .project-metric {
+      font-family: 'DM Mono', monospace; font-size: .75rem;
+      color: var(--gold); background: rgba(200,150,62,.08);
+      border: 1px solid rgba(200,150,62,.2);
+      padding: .3rem .7rem; border-radius: 6px;
+      display: inline-block; margin-bottom: 1rem;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .project-tag {
+      font-family: 'DM Mono', monospace; font-size: .68rem;
+      padding: .2rem .55rem; border-radius: 4px;
+      background: var(--light); color: var(--sky);
+      border: 1px solid var(--border);
+    }
+    .project-link {
+      margin-top: 1.25rem; display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .8rem; font-weight: 600; color: var(--blue);
+      text-decoration: none; transition: gap .15s;
+    }
+    .project-link:hover { gap: .7rem; }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: #fff; }
+    .exp-container { max-width: 750px; margin: 0 auto; }
+    .exp-item {
+      display: grid; grid-template-columns: 140px 1fr;
+      gap: 2rem; padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date {
+      font-family: 'DM Mono', monospace; font-size: .75rem;
+      color: var(--gray); padding-top: .2rem; line-height: 1.6;
+    }
+    .exp-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem; color: var(--navy); margin-bottom: .25rem;
+    }
+    .exp-org {
+      font-size: .85rem; color: var(--sky); font-weight: 500; margin-bottom: .5rem;
+    }
+    .exp-desc { font-size: .88rem; color: #4A6080; line-height: 1.65; }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy);
+      text-align: center; padding: 6rem 4rem;
+    }
+    #contact .section-label { color: var(--accent); }
+    #contact .section-title { color: #fff; margin: 0 auto 1rem; }
+    #contact .section-desc { color: rgba(255,255,255,.6); margin: 0 auto 3rem; }
+    .contact-links {
+      display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .85rem 1.75rem; border-radius: 10px;
+      font-size: .9rem; font-weight: 600; text-decoration: none;
+      transition: all .2s;
+    }
+    .contact-link.primary {
+      background: var(--accent); color: #fff;
+    }
+    .contact-link.primary:hover { background: #5ab4f0; transform: translateY(-2px); }
+    .contact-link.secondary {
+      background: rgba(255,255,255,.08); color: rgba(255,255,255,.85);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .contact-link.secondary:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); border-top: 1px solid rgba(255,255,255,.07);
+      text-align: center; padding: 1.5rem;
+      font-size: .78rem; color: rgba(255,255,255,.3);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2.5rem; }
+      .hero-card { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .exp-item { grid-template-columns: 1fr; gap: .5rem; }
+      #contact { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Julian Rincón</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text fade-up">
+    <div class="hero-eyebrow">Available for internships</div>
+    <h1>Building <em>intelligent</em> systems from the ground up.</h1>
+    <p class="hero-sub">
+      CS &amp; AI student at Universidad Sergio Arboleda, Bogotá.
+      Focused on machine learning, data science, and real-world AI applications — not just academic exercises.
+    </p>
+    <div class="hero-chips">
+      <span class="chip">Python</span>
+      <span class="chip">Machine Learning</span>
+      <span class="chip">AWS</span>
+      <span class="chip">LLMs</span>
+      <span class="chip">Data Science</span>
+      <span class="chip">FastAPI</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="https://www.linkedin.com/in/julian-rinc%C3%B3n-1a05501b7/" target="_blank" class="btn-outline">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="hero-card fade-up" style="animation-delay:.2s">
+    <div class="card-header">
+      <div class="card-dot red"></div>
+      <div class="card-dot yellow"></div>
+      <div class="card-dot green"></div>
+      <span class="card-filename">profile.py</span>
+    </div>
+    <div class="code-block">
+      <span class="code-key">julian</span> <span class="code-punct">= {</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"degree"</span><span class="code-punct">:</span> <span class="code-arr">"CS &amp; AI, 8th semester"</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"focus"</span><span class="code-punct">:</span> <span class="code-arr">["ML", "Data Science", "Local AI"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"building"</span><span class="code-punct">:</span> <span class="code-arr">"Jarvis IronMan"</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"stack"</span><span class="code-punct">:</span> <span class="code-arr">["Python", "AWS", "Ollama"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"goal"</span><span class="code-punct">:</span> <span class="code-arr">"Found an AI company"</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"open_to"</span><span class="code-punct">:</span> <span class="code-arr">["internships", "freelance"]</span><br/>
+      <span class="code-punct">}</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="fade-up">
+      <p class="section-label">About me</p>
+      <h2 class="section-title">Code, data, and the ambition to build real things.</h2>
+      <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
+        I'm an 8th-semester Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda.
+        My work spans building local AI pipelines, training predictive models on real datasets, designing
+        domain-specific languages, and deploying fullstack applications on AWS.
+      </p>
+      <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
+        I care about systems that work in practice — not just in notebooks. My long-term goal is to found
+        a data science company building proprietary AI systems for businesses that need them.
+      </p>
+      <div class="about-stats">
+        <div class="stat-box">
+          <span class="stat-num">8th</span>
+          <span class="stat-label">Semester of 9</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Real projects deployed</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">0.75</span>
+          <span class="stat-label">R² on Ames Housing ML</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">20K+</span>
+          <span class="stat-label">Records processed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-right fade-up">
+      <div class="skill-group">
+        <p class="skill-group-label">Languages</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">ML / AI</p>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag">XGBoost</span>
+          <span class="skill-tag">LightGBM</span>
+          <span class="skill-tag">Whisper</span>
+          <span class="skill-tag">Ollama</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Cloud & DevOps</p>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS EC2</span>
+          <span class="skill-tag">AWS RDS</span>
+          <span class="skill-tag">AWS S3</span>
+          <span class="skill-tag">AWS Athena</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Tools</p>
+        <div class="skill-tags">
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Playwright</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Jupyter</span>
+          <span class="skill-tag">ANTLR4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div style="max-width:1100px;margin:0 auto;">
+    <p class="section-label fade-up">Featured Projects</p>
+    <h2 class="section-title fade-up">Things I've built that actually work.</h2>
+    <p class="section-desc fade-up">From local AI assistants to fullstack cloud apps — each project solves a real problem with production-grade code.</p>
+
+    <div class="projects-grid">
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">🤖</div>
+          <span class="project-status status-active">Active</span>
+        </div>
+        <h3 class="project-name">Jarvis IronMan</h3>
+        <p class="project-desc">Fully local voice assistant running entirely offline. Pipeline: Mic → Whisper STT → Ollama LLM → Actions → Piper TTS. Integrates Gmail, Google Calendar, browser automation, and a custom HUD.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Whisper</span>
+          <span class="project-tag">Ollama</span>
+          <span class="project-tag">Playwright</span>
+          <span class="project-tag">tkinter</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/jarvis-ironman" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">🧬</div>
+          <span class="project-status status-done">Done</span>
+        </div>
+        <h3 class="project-name">ML DSL for Machine Learning</h3>
+        <p class="project-desc">Custom domain-specific language built with ANTLR4, supporting linear regression, MLP classifier, K-Means clustering, matrix operations, data visualization, and file I/O — all in a purpose-built syntax.</p>
+        <div class="project-tags">
+          <span class="project-tag">ANTLR4</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">Matplotlib</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/Proyecto-Final-L" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">☁️</div>
+          <span class="project-status status-done">Done</span>
+        </div>
+        <h3 class="project-name">Chinook Fullstack on AWS</h3>
+        <p class="project-desc">Production fullstack app on the Chinook music database. React/Vite frontend and FastAPI backend deployed on separate EC2 instances, with PostgreSQL on AWS RDS.</p>
+        <div class="project-tags">
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">React</span>
+          <span class="project-tag">AWS EC2</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">RDS</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/chinook-fullstack" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">⚡</div>
+          <span class="project-status status-done">Done</span>
+        </div>
+        <h3 class="project-name">High Performance Computing</h3>
+        <p class="project-desc">Four HPC workshops: TSP brute force (sequential vs parallel), Sobel edge detection, video grayscale processing, and distributed TSP with Docker Swarm. Each with benchmark comparisons.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Docker Swarm</span>
+          <span class="project-tag">multiprocessing</span>
+          <span class="project-tag">Flask</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/HPC" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">📡</div>
+          <span class="project-status status-done">Done</span>
+        </div>
+        <h3 class="project-name">Network Traffic Analysis</h3>
+        <p class="project-desc">Captured 1.5h of real network traffic via PowerShell, then analyzed packet size distributions, inter-arrival times, and disk file sizes in Python. Confirmed heavy-tail behavior across 384K files.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">384,820 files analyzed · peaks at 125 MB/s</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">PowerShell</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">Matplotlib</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/Analisis-de-Trafico-de-Red-con-PowerShell-y-Python" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">🔁</div>
+          <span class="project-status status-done">Done</span>
+        </div>
+        <h3 class="project-name">Logic Gate Simulator</h3>
+        <p class="project-desc">Origami-inspired Boolean circuit simulator implementing AND, OR, NOT, NAND gates with topological propagation, cycle detection, Half-Adder and Full-Adder construction, and NetworkX visualization.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">NetworkX</span>
+          <span class="project-tag">unittest</span>
+          <span class="project-tag">Matplotlib</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/Computadpr-Origami" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div style="max-width:1100px;margin:0 auto;">
+    <p class="section-label fade-up">Education & Experience</p>
+    <h2 class="section-title fade-up">Where I've studied and worked.</h2>
+
+    <div class="exp-container fade-up">
+
+      <div class="exp-item">
+        <div class="exp-date">2021 — present</div>
+        <div>
+          <h3 class="exp-title">B.Sc. Computer Science & Artificial Intelligence</h3>
+          <p class="exp-org">Universidad Sergio Arboleda — Bogotá, Colombia</p>
+          <p class="exp-desc">8th semester of 9. Current courses: Big Data & Data Engineering, Machine Learning, Simulation & Modeling, Neural Networks (Classification). Previous coursework includes HPC, Databases, Compilers, Distributed Networks, and Operating Systems.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Dec 2024 — Jan 2025</div>
+        <div>
+          <h3 class="exp-title">Integral Advisor</h3>
+          <p class="exp-org">Falabella (via ManPower) — Bogotá, Colombia</p>
+          <p class="exp-desc">Customer service and logistics support during peak season. Inventory management and efficient resolution of customer requirements.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2022</div>
+        <div>
+          <h3 class="exp-title">Logistics Support — Store Opening</h3>
+          <p class="exp-org">American Eagle — Quito, Ecuador</p>
+          <p class="exp-desc">Organized and prepared merchandise for the first American Eagle store opening in Ecuador at Centro Comercial El Jardín.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label fade-up">Get in touch</p>
+  <h2 class="section-title fade-up">Open to opportunities.</h2>
+  <p class="section-desc fade-up">
+    Looking for internships, freelance projects, or collaborations in AI, Data Science, and Software Development. Let's build something real.
+  </p>
+  <div class="contact-links fade-up">
+    <a href="mailto:julianer2002@gmail.com" class="contact-link primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      julianer2002@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/julian-rinc%C3%B3n-1a05501b7/" target="_blank" class="contact-link secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/Julian-Rincon" target="_blank" class="contact-link secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+  </div>
+</section>
+
+<footer>
+  built by Julian Rincón · Colombia · 2025
+</footer>
+
+<script>
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Stagger project cards
+  document.querySelectorAll('.project-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.07}s`;
+  });
+</script>
+</body>
+</html>
