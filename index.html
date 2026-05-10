@@ -363,7 +363,7 @@
     <h1>Building <em>intelligent</em> systems from the ground up.</h1>
     <p class="hero-sub">
       CS &amp; AI student at Universidad Sergio Arboleda, Bogotá.
-      Focused on machine learning, data science, and real-world AI applications — not just academic exercises.
+      Focused on machine learning, autonomous agents, and real-world AI — from offline voice assistants to RL-based decision systems.
     </p>
     <div class="hero-chips">
       <span class="chip">Python</span>
@@ -415,8 +415,10 @@
         domain-specific languages, and deploying fullstack applications on AWS.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
-        I care about systems that work in practice — not just in notebooks. My long-term goal is to found
-        a data science company building proprietary AI systems for businesses that need them.
+        I care about systems that work in practice — not just in notebooks. My work spans local AI pipelines, RL-based decision agents (SAVI), predictive modeling on real datasets, and fullstack deployments on AWS.
+      </p>
+      <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
+        My long-term goal is to found a data science company building proprietary AI systems for businesses that need them.
       </p>
       <div class="about-stats">
         <div class="stat-box">
@@ -428,8 +430,8 @@
           <span class="stat-label">Real projects deployed</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">0.75</span>
-          <span class="stat-label">R² on Ames Housing ML</span>
+          <span class="stat-num">0.96</span>
+          <span class="stat-label">R² — SAVI valuation model</span>
         </div>
         <div class="stat-box">
           <span class="stat-num">20K+</span>
@@ -517,18 +519,19 @@
       <div class="project-card fade-up">
         <div class="project-top">
           <div class="project-icon">🏠</div>
-          <span class="project-status status-done">Done</span>
+          <span class="project-status status-active">Active</span>
         </div>
-        <h3 class="project-name">Ames Housing ML</h3>
-        <p class="project-desc">Real estate price prediction and unsupervised segmentation on 20,203 properties (2006–2024). Combined original Kaggle dataset with City of Ames Assessor 2024 data. Compared 6 algorithms including clustering with K-Means, Hierarchical and DBSCAN.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">LightGBM R²=0.75 · MAE≈$23K · 20,203 records</div>
+        <h3 class="project-name">SAVI — Autonomous Real Estate Valuation</h3>
+        <p class="project-desc">End-to-end ML pipeline that goes beyond prediction: a Markov Decision Process agent decides whether to APPROVE, REVIEW, or REJECT each valuation based on expected risk. Built on 20,203 properties (2006–2024) with K-Means segmentation, XGBoost pricing, and Value Iteration policy optimization.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">XGBoost R²=0.9609 · 93.1% auto-approved · 259 iterations</div>
         <div class="project-tags">
-          <span class="project-tag">LightGBM</span>
           <span class="project-tag">XGBoost</span>
-          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">MDP</span>
+          <span class="project-tag">Value Iteration</span>
           <span class="project-tag">K-Means</span>
-          <span class="project-tag">DBSCAN</span>
+          <span class="project-tag">scikit-learn</span>
         </div>
+        <a href="https://julian-rincon.github.io/ames-housing-ml/MDP_Ames_Presentacion.html" target="_blank" class="project-link">Live Demo →</a>
         <a href="https://github.com/Julian-Rincon/ames-housing-ml" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
@@ -636,7 +639,7 @@
       </div>
 
       <div class="exp-item">
-        <div class="exp-date">2025 — present</div>
+        <div class="exp-date">2024 — present</div>
         <div>
           <h3 class="exp-title">Local AI Voice Assistant — Independent Project</h3>
           <p class="exp-org">Jarvis IronMan · Self-directed</p>
