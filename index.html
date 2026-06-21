@@ -514,13 +514,16 @@
           <span class="project-status status-active">Active</span>
         </div>
         <h3 class="project-name">Jarvis IronMan</h3>
-        <p class="project-desc">Fully local voice assistant running entirely offline. Pipeline: Mic → Whisper STT → Ollama LLM → Actions → Piper TTS. Integrates Gmail, Google Calendar, browser automation, and a custom HUD.</p>
+        <p class="project-desc">Production-grade personal AI assistant running daily on Linux (Fedora KDE). Streaming voice conversation with sub-second response and barge-in interrupt. TieredBrain: 3-level LLM routing (Ollama local → Groq → Gemini) with circuit breakers and shared context. 16 auto-discovered skills. Iron Man web HUD with live system metrics. Meeting agent that joins Meet/Zoom/Teams, transcribes live, and speaks through a virtual microphone. Autonomous desktop vision agent (up to 25 steps). Full Google Workspace integration (Calendar, Gmail, Drive). Vector + episodic memory (ChromaDB). Daily OS layer (morning briefing, day close, productivity metrics). Gaming mode with automatic GPU/thermal management. Telegram remote control, voice-first.</p>
         <div class="project-tags">
           <span class="project-tag">Python</span>
+          <span class="project-tag">TieredBrain (Ollama/Groq/Gemini)</span>
           <span class="project-tag">Whisper</span>
-          <span class="project-tag">Ollama</span>
-          <span class="project-tag">Playwright</span>
-          <span class="project-tag">tkinter</span>
+          <span class="project-tag">Piper TTS</span>
+          <span class="project-tag">ChromaDB</span>
+          <span class="project-tag">WebSocket HUD</span>
+          <span class="project-tag">PipeWire</span>
+          <span class="project-tag">OAuth2</span>
         </div>
         <a href="https://github.com/Julian-Rincon/Jarvis-Public" target="_blank" class="project-link">View on GitHub →</a>
       </div>
@@ -547,18 +550,21 @@
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">🧬</div>
+          <div class="project-icon">🛒</div>
           <span class="project-status status-done">Done</span>
         </div>
-        <h3 class="project-name">ML DSL for Machine Learning</h3>
-        <p class="project-desc">Custom domain-specific language built with ANTLR4, supporting linear regression, MLP classifier, K-Means clustering, matrix operations, data visualization, and file I/O — all in a purpose-built syntax.</p>
+        <h3 class="project-name">ShopStream Big Data Pipeline</h3>
+        <p class="project-desc">End-to-end AWS big data pipeline for a fictional e-commerce platform. Generates 2.5M synthetic behavioral events, validates ingestion via S3-triggered Lambda with CloudWatch metrics, processes with PySpark on EMR, loads a star schema into RDS PostgreSQL via Glue ETL, and exposes analytics through a Flask API deployed with Zappa.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">2.5M events · Lambda · EMR · Glue · Zappa · CI/CD</div>
         <div class="project-tags">
-          <span class="project-tag">ANTLR4</span>
-          <span class="project-tag">Python</span>
-          <span class="project-tag">scikit-learn</span>
-          <span class="project-tag">Matplotlib</span>
+          <span class="project-tag">PySpark</span>
+          <span class="project-tag">AWS Lambda</span>
+          <span class="project-tag">AWS Glue</span>
+          <span class="project-tag">EMR</span>
+          <span class="project-tag">Flask</span>
+          <span class="project-tag">Zappa</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/Proyecto-Final-L" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/shopstream-bigdata" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card fade-up">
@@ -581,21 +587,18 @@
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">🛒</div>
+          <div class="project-icon">🧬</div>
           <span class="project-status status-done">Done</span>
         </div>
-        <h3 class="project-name">ShopStream Big Data Pipeline</h3>
-        <p class="project-desc">End-to-end AWS big data pipeline for a fictional e-commerce platform. Generates 2.5M synthetic behavioral events, validates ingestion via S3-triggered Lambda with CloudWatch metrics, processes with PySpark on EMR, loads a star schema into RDS PostgreSQL via Glue ETL, and exposes analytics through a Flask API deployed with Zappa.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">2.5M events · Lambda · EMR · Glue · Zappa · CI/CD</div>
+        <h3 class="project-name">ML DSL for Machine Learning</h3>
+        <p class="project-desc">Custom domain-specific language built with ANTLR4, supporting linear regression, MLP classifier, K-Means clustering, matrix operations, data visualization, and file I/O — all in a purpose-built syntax.</p>
         <div class="project-tags">
-          <span class="project-tag">PySpark</span>
-          <span class="project-tag">AWS Lambda</span>
-          <span class="project-tag">AWS Glue</span>
-          <span class="project-tag">EMR</span>
-          <span class="project-tag">Flask</span>
-          <span class="project-tag">Zappa</span>
+          <span class="project-tag">ANTLR4</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">Matplotlib</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/shopstream-bigdata" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/Proyecto-Final-L" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card fade-up">
@@ -708,7 +711,7 @@
         <div>
           <h3 class="exp-title">Local AI Voice Assistant — Independent Project</h3>
           <p class="exp-org">Jarvis IronMan · Self-directed</p>
-          <p class="exp-desc">Designed and built a fully offline AI assistant from scratch — Whisper STT, Ollama LLM (llama3.1:8b), Piper TTS, Gmail/Calendar OAuth2, and browser automation with Playwright. Custom tkinter HUD with wake-word detection. Ongoing development towards persistent vector memory and Home Assistant integration.</p>
+          <p class="exp-desc">Production-grade personal AI assistant running daily on Linux (Fedora KDE). TieredBrain: 3-level LLM routing (Ollama local → Groq → Gemini) with circuit breakers and shared context. 16 auto-discovered skills. Meeting agent (Meet/Zoom/Teams), autonomous desktop vision agent (up to 25 steps), full Google Workspace integration, vector + episodic memory (ChromaDB), daily OS layer, gaming mode with GPU/thermal management, Telegram remote control.</p>
         </div>
       </div>
 
