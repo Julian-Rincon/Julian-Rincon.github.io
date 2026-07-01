@@ -404,7 +404,7 @@
       <span class="code-key">julian</span> <span class="code-punct">= {</span><br/>
       &nbsp;&nbsp;<span class="code-str">"degree"</span><span class="code-punct">:</span> <span class="code-arr">"CS &amp; AI, 9th semester"</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"focus"</span><span class="code-punct">:</span> <span class="code-arr">["ML Engineering", "Data Engineering", "Stochastic Systems"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"building"</span><span class="code-punct">:</span> <span class="code-arr">["Jarvis IronMan", "SAVI v2", "Dogma"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"building"</span><span class="code-punct">:</span> <span class="code-arr">["NEXUS", "SAVI v2", "Dogma"]</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"stack"</span><span class="code-punct">:</span> <span class="code-arr">["Python", "AWS", "PyTorch", "Terraform"]</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"leadership"</span><span class="code-punct">:</span> <span class="code-arr">["USABOT — 1st Place", "WarmiTics — 1st Place Int'l"]</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"goal"</span><span class="code-punct">:</span> <span class="code-arr">"ML Internship → MSc Germany"</span><span class="code-punct">,</span><br/>
@@ -421,10 +421,10 @@
       <p class="section-label">About me</p>
       <h2 class="section-title">I don't build demos. I build systems that run.</h2>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        I'm an 9th-semester Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure — AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
+        I'm an 8th-semester Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure — AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        On the data side, I architected <strong>ShopStream</strong>, an end-to-end AWS Big Data pipeline processing 2.5M synthetic events through S3, Lambda validation, EMR/PySpark analytics, Glue ETL and a Flask API. On the AI side, I built <strong>Jarvis IronMan</strong>, a dual-brain local assistant running on Fedora KDE — Ollama for sub-200ms routing, Gemini for complex reasoning, fully offline voice pipeline. And on the decision-systems side, <strong>SAVI v2</strong> combines MDP, Q-Learning and Deep Q-Networks into a consensus policy that autonomously approves or escalates real estate valuations.
+        On the data side, I architected <strong>ShopStream</strong>, an end-to-end AWS Big Data pipeline processing 2.5M synthetic events through S3, Lambda validation, EMR/PySpark analytics, Glue ETL and a Flask API. On the AI side, I built <strong>NEXUS</strong>, an autonomous personal AI system that manages the machine, not just conversation — 5-tier LLM routing, 36 self-discovered skills, an MCP server exposing capabilities to other AI agents, and safety-gated automation for home, finance, and dev workflows. And on the decision-systems side, <strong>SAVI v2</strong> combines MDP, Q-Learning and Deep Q-Networks into a consensus policy that autonomously approves or escalates real estate valuations.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
         Beyond software, I integrate hardware and product thinking: I led <strong>USABOT</strong>'s 1st-place win — 3D CAD prototyping, sensor integration, and the commercial pitch that sold the idea to judges. And I led the technical development of <strong>WarmiTics</strong>, the 1st-place winning project of the Wisibilízalas international competition (Universidad Pompeu Fabra) as Technical PM and Lead Frontend/UX — representing my school in the Senior category at age 17 against teams from across Latin America and Europe. My long-term goal: an ML/Data Engineering internship now, an MSc in Germany next.
@@ -513,19 +513,18 @@
           <div class="project-icon">🤖</div>
           <span class="project-status status-active">Active</span>
         </div>
-        <h3 class="project-name">Jarvis IronMan</h3>
-        <p class="project-desc">Production-grade personal AI assistant running daily on Linux (Fedora KDE). Streaming voice conversation with sub-second response and barge-in interrupt. TieredBrain: 3-level LLM routing (Ollama local → Groq → Gemini) with circuit breakers and shared context. 16 auto-discovered skills. Iron Man web HUD with live system metrics. Meeting agent that joins Meet/Zoom/Teams, transcribes live, and speaks through a virtual microphone. Autonomous desktop vision agent (up to 25 steps). Full Google Workspace integration (Calendar, Gmail, Drive). Vector + episodic memory (ChromaDB). Daily OS layer (morning briefing, day close, productivity metrics). Gaming mode with automatic GPU/thermal management. Telegram remote control, voice-first.</p>
+        <h3 class="project-name">NEXUS</h3>
+        <p class="project-desc">Autonomous personal AI system running daily on Linux — manages the machine, not just conversation. 5-tier LLM routing (local + cloud), 36 self-discovered skills spanning home automation, personal finance parsing, and passive security monitoring. Ships an MCP server exposing its capabilities as tools for other AI agents, plus safety-gated system control, custom-trained wake word, and cloned-voice TTS.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">5-tier routing · 36 skills · MCP server</div>
         <div class="project-tags">
           <span class="project-tag">Python</span>
-          <span class="project-tag">TieredBrain (Ollama/Groq/Gemini)</span>
+          <span class="project-tag">MCP</span>
           <span class="project-tag">Whisper</span>
-          <span class="project-tag">Piper TTS</span>
           <span class="project-tag">ChromaDB</span>
-          <span class="project-tag">WebSocket HUD</span>
-          <span class="project-tag">PipeWire</span>
           <span class="project-tag">OAuth2</span>
+          <span class="project-tag">Desktop HUD</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/Jarvis-Public" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card fade-up">
@@ -550,21 +549,18 @@
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">🛒</div>
+          <div class="project-icon">🧬</div>
           <span class="project-status status-done">Done</span>
         </div>
-        <h3 class="project-name">ShopStream Big Data Pipeline</h3>
-        <p class="project-desc">End-to-end AWS big data pipeline for a fictional e-commerce platform. Generates 2.5M synthetic behavioral events, validates ingestion via S3-triggered Lambda with CloudWatch metrics, processes with PySpark on EMR, loads a star schema into RDS PostgreSQL via Glue ETL, and exposes analytics through a Flask API deployed with Zappa.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">2.5M events · Lambda · EMR · Glue · Zappa · CI/CD</div>
+        <h3 class="project-name">ML DSL for Machine Learning</h3>
+        <p class="project-desc">Custom domain-specific language built with ANTLR4, supporting linear regression, MLP classifier, K-Means clustering, matrix operations, data visualization, and file I/O — all in a purpose-built syntax.</p>
         <div class="project-tags">
-          <span class="project-tag">PySpark</span>
-          <span class="project-tag">AWS Lambda</span>
-          <span class="project-tag">AWS Glue</span>
-          <span class="project-tag">EMR</span>
-          <span class="project-tag">Flask</span>
-          <span class="project-tag">Zappa</span>
+          <span class="project-tag">ANTLR4</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">Matplotlib</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/shopstream-bigdata" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/Proyecto-Final-L" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card fade-up">
@@ -587,18 +583,21 @@
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">🧬</div>
+          <div class="project-icon">🛒</div>
           <span class="project-status status-done">Done</span>
         </div>
-        <h3 class="project-name">ML DSL for Machine Learning</h3>
-        <p class="project-desc">Custom domain-specific language built with ANTLR4, supporting linear regression, MLP classifier, K-Means clustering, matrix operations, data visualization, and file I/O — all in a purpose-built syntax.</p>
+        <h3 class="project-name">ShopStream Big Data Pipeline</h3>
+        <p class="project-desc">End-to-end AWS big data pipeline for a fictional e-commerce platform. Generates 2.5M synthetic behavioral events, validates ingestion via S3-triggered Lambda with CloudWatch metrics, processes with PySpark on EMR, loads a star schema into RDS PostgreSQL via Glue ETL, and exposes analytics through a Flask API deployed with Zappa.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">2.5M events · Lambda · EMR · Glue · Zappa · CI/CD</div>
         <div class="project-tags">
-          <span class="project-tag">ANTLR4</span>
-          <span class="project-tag">Python</span>
-          <span class="project-tag">scikit-learn</span>
-          <span class="project-tag">Matplotlib</span>
+          <span class="project-tag">PySpark</span>
+          <span class="project-tag">AWS Lambda</span>
+          <span class="project-tag">AWS Glue</span>
+          <span class="project-tag">EMR</span>
+          <span class="project-tag">Flask</span>
+          <span class="project-tag">Zappa</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/Proyecto-Final-L" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/shopstream-bigdata" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card fade-up">
@@ -709,9 +708,9 @@
       <div class="exp-item">
         <div class="exp-date">2024 — present</div>
         <div>
-          <h3 class="exp-title">Local AI Voice Assistant — Independent Project</h3>
-          <p class="exp-org">Jarvis IronMan · Self-directed</p>
-          <p class="exp-desc">Production-grade personal AI assistant running daily on Linux (Fedora KDE). TieredBrain: 3-level LLM routing (Ollama local → Groq → Gemini) with circuit breakers and shared context. 16 auto-discovered skills. Meeting agent (Meet/Zoom/Teams), autonomous desktop vision agent (up to 25 steps), full Google Workspace integration, vector + episodic memory (ChromaDB), daily OS layer, gaming mode with GPU/thermal management, Telegram remote control.</p>
+          <h3 class="exp-title">Autonomous Personal AI System — Independent Project</h3>
+          <p class="exp-org">NEXUS · Self-directed</p>
+          <p class="exp-desc">Designed and built an autonomous AI system that manages the machine, not just conversation — 5-tier LLM routing (local + cloud), 36 self-discovered skills covering home automation, personal finance parsing, and passive security monitoring. Ships an MCP server exposing its capabilities as tools for external AI agents. Safety-gated system control, custom-trained wake word, cloned-voice TTS, and a native desktop HUD.</p>
         </div>
       </div>
 
