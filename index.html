@@ -421,10 +421,10 @@
       <p class="section-label">About me</p>
       <h2 class="section-title">I don't build demos. I build systems that run.</h2>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        I'm an 9th-semester Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure — AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
+        I'm an 8th-semester Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure — AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        On the data side, I architected <strong>ShopStream</strong>, an end-to-end AWS Big Data pipeline processing 2.5M synthetic events through S3, Lambda validation, EMR/PySpark analytics, Glue ETL and a Flask API. On the AI side, I built <strong>NEXUS</strong>, an autonomous personal AI system that manages the machine, not just conversation — 5-tier LLM routing, 36 self-discovered skills, an MCP server exposing capabilities to other AI agents, and safety-gated automation for home, finance, and dev workflows. And on the decision-systems side, <strong>SAVI v2</strong> combines MDP, Q-Learning and Deep Q-Networks into a consensus policy that autonomously approves or escalates real estate valuations.
+        On the data side, I architected <strong>ShopStream</strong>, an end-to-end AWS Big Data pipeline processing 2.5M synthetic events through S3, Lambda validation, EMR/PySpark analytics, Glue ETL and a Flask API. On the AI side, I built <strong>NEXUS</strong>, an autonomous personal AI system that manages the machine, not just conversation — 5-tier LLM routing (Cerebras, NVIDIA NIM), 38 self-discovered skills, a hybrid GCP/local deployment, an MCP server exposing capabilities to other AI agents, and safety-gated automation for home, finance, and dev workflows. And on the decision-systems side, <strong>SAVI v2</strong> combines MDP, Q-Learning and Deep Q-Networks into a consensus policy that autonomously approves or escalates real estate valuations.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
         Beyond software, I integrate hardware and product thinking: I led <strong>USABOT</strong>'s 1st-place win — 3D CAD prototyping, sensor integration, and the commercial pitch that sold the idea to judges. And I led the technical development of <strong>WarmiTics</strong>, the 1st-place winning project of the Wisibilízalas international competition (Universidad Pompeu Fabra) as Technical PM and Lead Frontend/UX — representing my school in the Senior category at age 17 against teams from across Latin America and Europe. My long-term goal: an ML/Data Engineering internship now, an MSc in Germany next.
@@ -514,15 +514,15 @@
           <span class="project-status status-active">Active</span>
         </div>
         <h3 class="project-name">NEXUS</h3>
-        <p class="project-desc">Autonomous personal AI system running daily on Linux — manages the machine, not just conversation. 5-tier LLM routing (local + cloud), 36 self-discovered skills spanning home automation, personal finance parsing, and passive security monitoring. Ships an MCP server exposing its capabilities as tools for other AI agents, plus safety-gated system control, custom-trained wake word, and cloned-voice TTS.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">5-tier routing · 36 skills · MCP server</div>
+        <p class="project-desc">Autonomous personal AI system running daily on Linux — manages the machine, not just conversation. 5-tier LLM routing (Ollama → Groq → Cerebras 2600 tok/s → NVIDIA NIM 128K-context → Gemini), 38 self-discovered skills spanning home automation, personal finance parsing, and passive security monitoring. Hybrid cloud/local deployment on a free-tier GCP VM with automated cost-guard cutoff. Ships an MCP server exposing its capabilities as tools for other AI agents, plus safety-gated system control, custom-trained wake word, and cloned voice (ElevenLabs).</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">5-tier routing · 38 skills · GCP hybrid · MCP server</div>
         <div class="project-tags">
           <span class="project-tag">Python</span>
           <span class="project-tag">MCP</span>
-          <span class="project-tag">Whisper</span>
+          <span class="project-tag">GCP</span>
+          <span class="project-tag">Deepgram</span>
+          <span class="project-tag">ElevenLabs</span>
           <span class="project-tag">ChromaDB</span>
-          <span class="project-tag">OAuth2</span>
-          <span class="project-tag">Desktop HUD</span>
         </div>
         <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" class="project-link">View on GitHub →</a>
       </div>
@@ -710,7 +710,7 @@
         <div>
           <h3 class="exp-title">Autonomous Personal AI System — Independent Project</h3>
           <p class="exp-org">NEXUS · Self-directed</p>
-          <p class="exp-desc">Designed and built an autonomous AI system that manages the machine, not just conversation — 5-tier LLM routing (local + cloud), 36 self-discovered skills covering home automation, personal finance parsing, and passive security monitoring. Ships an MCP server exposing its capabilities as tools for external AI agents. Safety-gated system control, custom-trained wake word, cloned-voice TTS, and a native desktop HUD.</p>
+          <p class="exp-desc">Designed and built an autonomous AI system that manages the machine, not just conversation — 5-tier LLM routing (Cerebras, NVIDIA NIM), 38 self-discovered skills covering home automation, personal finance parsing, and passive security monitoring. Hybrid GCP/local deployment with automated cost governance. Ships an MCP server exposing its capabilities as tools for external AI agents. Safety-gated system control, custom-trained wake word, cloned voice (ElevenLabs), and a native desktop HUD.</p>
         </div>
       </div>
 
