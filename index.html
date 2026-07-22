@@ -17,7 +17,7 @@
       --accent: #3B9EE8;
       --gold:   #C8963E;
       --white:  #F7F9FC;
-      --gray:   #8A9AB5;
+      --gray:   #5A6B85;
       --light:  #EBF2FB;
       --border: #D5E2F0;
       --text:   #1A2A3F;
@@ -334,16 +334,162 @@
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .hero-eyebrow::before { animation: none !important; }
+      * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    /* ── FOCUS STATES ── */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+    }
+
+    /* ── SECTION LABEL MOTIF ── */
+    .section-label::before { content: '// '; color: var(--gray); }
+
+    /* ── NAV: file-tab motif + mobile ── */
+    .nav-links a { position: relative; font-family: 'DM Mono', monospace; text-transform: none; letter-spacing: 0; }
+    .nav-links a::after { content: '.py'; color: var(--gray); opacity: .55; }
+    .nav-links a.active { color: var(--blue); }
+    .nav-links a.active::before {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -.6rem;
+      height: 2px; background: var(--accent); border-radius: 2px;
+    }
+    .kbd-hint {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--gray);
+      background: var(--light); border: 1px solid var(--border);
+      padding: .35rem .6rem; border-radius: 6px; cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .kbd-hint:hover { border-color: var(--accent); color: var(--blue); }
+    .kbd-hint kbd {
+      font-family: inherit; font-size: .68rem; background: #fff;
+      border: 1px solid var(--border); border-radius: 3px; padding: 0 .3rem;
+    }
+    .nav-burger {
+      display: none; flex-direction: column; gap: 4px; background: none; border: none;
+      cursor: pointer; padding: .4rem;
+    }
+    .nav-burger span { width: 20px; height: 2px; background: var(--navy); border-radius: 2px; }
+    .nav-mobile-panel {
+      display: none; position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
+      background: #fff; border-bottom: 1px solid var(--border);
+      box-shadow: 0 12px 24px rgba(15,30,53,.08);
+    }
+    .nav-mobile-panel.open { display: block; }
+    .nav-mobile-panel ul { list-style: none; padding: .5rem 1.5rem 1.25rem; }
+    .nav-mobile-panel a {
+      display: block; padding: .85rem 0; font-size: .95rem; font-weight: 500;
+      color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── GITHUB LIVE SIGNAL ── */
+    .live-signal {
+      display: none; align-items: center; gap: .5rem;
+      font-family: 'DM Mono', monospace; font-size: .78rem; color: var(--gray);
+      margin: -1rem 0 1.75rem; opacity: 0; transition: opacity .5s ease;
+    }
+    .live-signal.ready { display: inline-flex; opacity: 1; }
+    .live-signal .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #28C840;
+      box-shadow: 0 0 0 3px rgba(40,200,64,.15);
+    }
+
+    /* ── COMMAND PALETTE ── */
+    .cmdk-overlay {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(15,30,53,.55); backdrop-filter: blur(2px);
+      align-items: flex-start; justify-content: center; padding-top: 12vh;
+    }
+    .cmdk-overlay.open { display: flex; }
+    .cmdk-box {
+      width: min(560px, 90vw); background: #fff; border-radius: 14px;
+      border: 1px solid var(--border); box-shadow: 0 24px 64px rgba(15,30,53,.35);
+      overflow: hidden;
+    }
+    .cmdk-input-row { display: flex; align-items: center; gap: .6rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); }
+    .cmdk-input-row svg { flex-shrink: 0; color: var(--gray); }
+    .cmdk-input {
+      flex: 1; border: none; outline: none; font-family: 'DM Sans', sans-serif;
+      font-size: .95rem; color: var(--text); background: transparent;
+    }
+    .cmdk-esc { font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--gray);
+      border: 1px solid var(--border); border-radius: 4px; padding: .15rem .4rem; }
+    .cmdk-list { max-height: 340px; overflow-y: auto; padding: .5rem; }
+    .cmdk-item {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: .7rem .85rem; border-radius: 8px; cursor: pointer;
+      font-size: .88rem; color: var(--text);
+    }
+    .cmdk-item .cmdk-label { display: flex; align-items: center; gap: .65rem; }
+    .cmdk-item .cmdk-tag {
+      font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--gray);
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .cmdk-item.active { background: var(--light); }
+    .cmdk-empty { padding: 1.5rem; text-align: center; color: var(--gray); font-size: .85rem; }
+
+    /* ── PROJECTS: flagship vs. more ── */
+    .projects-flagship { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto 1.5rem; }
+    .project-card.flagship { border: 1.5px solid rgba(59,158,232,.35); box-shadow: 0 6px 24px rgba(15,30,53,.06); }
+    .projects-more-toggle {
+      display: block; margin: .5rem auto 2rem; background: none; border: 1px dashed var(--border);
+      color: var(--sky); font-family: 'DM Mono', monospace; font-size: .78rem;
+      padding: .6rem 1.2rem; border-radius: 8px; cursor: pointer; max-width: 1100px; width: 100%;
+      transition: border-color .15s, color .15s;
+    }
+    .projects-more-toggle:hover { border-color: var(--accent); color: var(--blue); }
+    .projects-more { max-width: 1100px; margin: 0 auto; }
+
+    /* ── LEADERSHIP ── */
+    #leadership { background: var(--navy); }
+    #leadership .section-label { color: var(--accent); }
+    #leadership .section-title { color: #fff; }
+    #leadership .section-desc { color: rgba(255,255,255,.6); }
+    .leadership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; max-width: 1100px; margin: 0 auto; }
+    .leadership-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px; padding: 2rem; display: flex; flex-direction: column;
+    }
+    .leadership-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+    .leadership-badge {
+      font-family: 'DM Mono', monospace; font-size: .7rem; font-weight: 600;
+      color: #F4D58D; background: rgba(244,213,141,.1); border: 1px solid rgba(244,213,141,.3);
+      padding: .3rem .7rem; border-radius: 100px; letter-spacing: .04em;
+    }
+    .leadership-name { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: #fff; margin-bottom: .3rem; }
+    .leadership-role { font-size: .8rem; color: var(--accent); font-family: 'DM Mono', monospace; margin-bottom: 1rem; }
+    .leadership-quote {
+      font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.05rem;
+      color: #fff; line-height: 1.5; margin-bottom: 1rem; padding-left: 1rem;
+      border-left: 2px solid var(--accent);
+    }
+    .leadership-desc { font-size: .88rem; color: rgba(255,255,255,.65); line-height: 1.65; margin-bottom: 1.25rem; }
+    .leadership-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: auto; }
+    .leadership-tags span {
+      font-family: 'DM Mono', monospace; font-size: .68rem; color: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      padding: .2rem .55rem; border-radius: 4px;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
+      nav { padding: .9rem 1.25rem; }
       .nav-links { display: none; }
+      .nav-burger { display: flex; }
       .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2.5rem; }
-      .hero-card { display: none; }
+      .hero-card { display: block; transform: scale(.96); transform-origin: top left; }
       section { padding: 4rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .exp-item { grid-template-columns: 1fr; gap: .5rem; }
       #contact { padding: 4rem 1.5rem; }
+      .projects-flagship { grid-template-columns: 1fr; }
+      .leadership-grid { grid-template-columns: 1fr; }
+      .kbd-hint span.kbd-hint-label { display: none; }
     }
   </style>
 </head>
@@ -353,12 +499,29 @@
 <nav>
   <a href="#home" class="nav-logo" style="text-decoration:none;">Julian Rincón</a>
   <ul class="nav-links">
+    <li><a href="#about" data-tab>about</a></li>
+    <li><a href="#projects" data-tab>projects</a></li>
+    <li><a href="#leadership" data-tab>leadership</a></li>
+    <li><a href="#experience" data-tab>experience</a></li>
+    <li><a href="#contact" data-tab>contact</a></li>
+  </ul>
+  <button class="kbd-hint" id="cmdkTrigger" type="button" aria-haspopup="dialog" aria-controls="cmdkOverlay">
+    <span class="kbd-hint-label">Quick nav</span>
+    <kbd id="cmdkModKey">⌘</kbd><kbd>K</kbd>
+  </button>
+  <button class="nav-burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navMobilePanel" aria-label="Toggle navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-panel" id="navMobilePanel">
+  <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#leadership">Leadership</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</nav>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -367,8 +530,11 @@
     <h1>I don't build demos. I build <em>systems that run</em>.</h1>
     <p class="hero-sub">
       CS &amp; AI student at Universidad Sergio Arboleda, Bogotá.
-      ML Engineer and Data Engineer at heart — shipping autonomous agents, distributed pipelines, and stochastic systems to real infrastructure, not just notebooks.
+      ML Engineer and Data Engineer at heart, shipping data pipelines, ML systems, and cloud infrastructure to production, not just notebooks.
     </p>
+    <div class="live-signal" id="liveSignal">
+      <span class="dot"></span> <span id="liveSignalText">checking GitHub activity…</span>
+    </div>
     <div class="hero-chips">
       <span class="chip">Python</span>
       <span class="chip">Machine Learning</span>
@@ -381,7 +547,7 @@
       <a href="#projects" class="btn-primary">View Projects</a>
       <a href="https://www.linkedin.com/in/julian-esteban-rinc%C3%B3n-rodriguez-1a05501b7/" target="_blank" class="btn-outline">LinkedIn</a>
       <div class="cv-dropdown" style="position:relative;display:inline-block;">
-        <button class="btn-outline" onclick="this.parentElement.querySelector('.cv-menu').classList.toggle('open')" style="cursor:pointer;display:flex;align-items:center;gap:.4rem;">
+        <button class="btn-outline cv-toggle" type="button" aria-haspopup="true" aria-expanded="false" style="cursor:pointer;display:flex;align-items:center;gap:.4rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download CV ▾
         </button>
@@ -402,12 +568,12 @@
     </div>
     <div class="code-block">
       <span class="code-key">julian</span> <span class="code-punct">= {</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"degree"</span><span class="code-punct">:</span> <span class="code-arr">"CS &amp; AI, 9th semester"</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"focus"</span><span class="code-punct">:</span> <span class="code-arr">["ML Engineering", "Data Engineering", "Stochastic Systems"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"building"</span><span class="code-punct">:</span> <span class="code-arr">["NEXUS", "SAVI v2", "Dogma"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"degree"</span><span class="code-punct">:</span> <span class="code-arr">"CS &amp; AI, final semester (9/9)"</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"focus"</span><span class="code-punct">:</span> <span class="code-arr">["ML Engineering", "Data Engineering", "Cloud Systems"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"shipped"</span><span class="code-punct">:</span> <span class="code-arr">["SAVI v2", "ShopStream", "NEXUS"]</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"stack"</span><span class="code-punct">:</span> <span class="code-arr">["Python", "AWS", "PyTorch", "Terraform"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"leadership"</span><span class="code-punct">:</span> <span class="code-arr">["USABOT — 1st Place", "WarmiTics — 1st Place Int'l"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"goal"</span><span class="code-punct">:</span> <span class="code-arr">"ML Internship → MSc Germany"</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"leadership"</span><span class="code-punct">:</span> <span class="code-arr">["USABOT (1st place)", "WarmiTics (1st, int'l)"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"goal"</span><span class="code-punct">:</span> <span class="code-arr">"ML internship, then an MSc in Germany"</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"open_to"</span><span class="code-punct">:</span> <span class="code-arr">["internships", "research collabs"]</span><br/>
       <span class="code-punct">}</span>
     </div>
@@ -421,13 +587,13 @@
       <p class="section-label">About me</p>
       <h2 class="section-title">I don't build demos. I build systems that run.</h2>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        I'm an 8th-semester Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure — AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
+        I'm a 9th-semester (final term) Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure: AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        On the data side, I architected <strong>ShopStream</strong>, an end-to-end AWS Big Data pipeline processing 2.5M synthetic events through S3, Lambda validation, EMR/PySpark analytics, Glue ETL and a Flask API. On the AI side, I built <strong>NEXUS</strong>, an autonomous personal AI system that manages the machine, not just conversation — 5-tier LLM routing (Cerebras, NVIDIA NIM), 38 self-discovered skills, a hybrid GCP/local deployment, an MCP server exposing capabilities to other AI agents, and safety-gated automation for home, finance, and dev workflows. And on the decision-systems side, <strong>SAVI v2</strong> combines MDP, Q-Learning and Deep Q-Networks into a consensus policy that autonomously approves or escalates real estate valuations.
+        On the data side, I architected <strong>ShopStream</strong>, an end-to-end AWS Big Data pipeline processing 2.5M synthetic events through S3, Lambda validation, EMR/PySpark analytics, Glue ETL and a Flask API. On the decision-systems side, <strong>SAVI v2</strong> combines MDP, Q-Learning and Deep Q-Networks into a consensus policy that autonomously approves or escalates real estate valuations, with an XGBoost baseline scoring R²=0.9609. I also maintain <strong>NEXUS</strong>, a personal AI system that runs my own machine day to day: multi-provider LLM routing, dozens of self-discovered skills, and a home/GCP deployment. It's closed-source by design, since it touches my finances and home systems, so the public repo documents the architecture instead of shipping the code.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
-        Beyond software, I integrate hardware and product thinking: I led <strong>USABOT</strong>'s 1st-place win — 3D CAD prototyping, sensor integration, and the commercial pitch that sold the idea to judges. And I led the technical development of <strong>WarmiTics</strong>, the 1st-place winning project of the Wisibilízalas international competition (Universidad Pompeu Fabra) as Technical PM and Lead Frontend/UX — representing my school in the Senior category at age 17 against teams from across Latin America and Europe. My long-term goal: an ML/Data Engineering internship now, an MSc in Germany next.
+        Beyond software, I care about showing up on bigger stages than the ones I started on. At 17 I represented my school in Ecuador at an international competition in Barcelona, and years later that same instinct, to compete and build somewhere bigger than my own classroom, is what's pointing me toward an internship now and an MSc in Germany after. More on that (and on USABOT) in <a href="#leadership" style="color:var(--blue);font-weight:600;text-decoration:none;">Leadership &amp; Impact</a> below.
       </p>
       <div class="about-stats">
         <div class="stat-box">
@@ -436,7 +602,7 @@
         </div>
         <div class="stat-box">
           <span class="stat-num">0.96</span>
-          <span class="stat-label">R² — SAVI v2 valuation model</span>
+          <span class="stat-label">R² · SAVI v2 valuation model</span>
         </div>
         <div class="stat-box">
           <span class="stat-num">🥇 1st</span>
@@ -504,36 +670,17 @@
   <div style="max-width:1100px;margin:0 auto;">
     <p class="section-label fade-up">Featured Projects</p>
     <h2 class="section-title fade-up">Things I've built that actually work.</h2>
-    <p class="section-desc fade-up">From local AI assistants to fullstack cloud apps — each project solves a real problem with production-grade code.</p>
+    <p class="section-desc fade-up">Three projects I'd defend line by line in an interview. A few more below, if you want to keep scrolling.</p>
 
-    <div class="projects-grid">
+    <div class="projects-flagship">
 
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">🤖</div>
-          <span class="project-status status-active">Active</span>
-        </div>
-        <h3 class="project-name">NEXUS</h3>
-        <p class="project-desc">Autonomous personal AI system running daily on Linux — manages the machine, not just conversation. 5-tier LLM routing (Ollama → Groq → Cerebras 2600 tok/s → NVIDIA NIM 128K-context → Gemini), 38 self-discovered skills spanning home automation, personal finance parsing, and passive security monitoring. Hybrid cloud/local deployment on a free-tier GCP VM with automated cost-guard cutoff. Ships an MCP server exposing its capabilities as tools for other AI agents, plus safety-gated system control, custom-trained wake word, and cloned voice (ElevenLabs).</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">5-tier routing · 38 skills · GCP hybrid · MCP server</div>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">MCP</span>
-          <span class="project-tag">GCP</span>
-          <span class="project-tag">Deepgram</span>
-          <span class="project-tag">ElevenLabs</span>
-          <span class="project-tag">ChromaDB</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-
-      <div class="project-card fade-up">
+      <div class="project-card flagship fade-up">
         <div class="project-top">
           <div class="project-icon">🏠</div>
           <span class="project-status status-active">Active</span>
         </div>
         <h3 class="project-name">SAVI v2 — Autonomous Real Estate Valuation</h3>
-        <p class="project-desc">End-to-end ML system with a full RL pipeline: MDP Value Iteration, Q-Learning (8,000 episodes), and Deep Q-Network (PyTorch) trained on 20,203 properties. Consensus policy across all three agents decides whether to APPROVE, REVIEW, or REJECT each valuation based on expected financial risk. Includes IEEE-format technical paper.</p>
+        <p class="project-desc">End-to-end ML system built with a 3-person team (Valeria Larea, Nicolás Garzón, Juan Niño) for our Machine Learning course: a full RL pipeline combining MDP Value Iteration, Q-Learning (8,000 episodes), and a Deep Q-Network (PyTorch) trained on 20,203 properties. Consensus policy across all three agents decides whether to APPROVE, REVIEW, or REJECT each valuation based on expected financial risk. Includes an IEEE-format technical paper.</p>
         <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">XGBoost R²=0.9609 · 3 RL agents · consensus policy</div>
         <div class="project-tags">
           <span class="project-tag">XGBoost</span>
@@ -543,45 +690,11 @@
           <span class="project-tag">PyTorch</span>
           <span class="project-tag">K-Means</span>
         </div>
-        <a href="https://julian-rincon.github.io/ames-housing-ml/SAVI_v2_ParcialFinal.html" target="_blank" class="project-link">Live Demo →</a>
+        <a href="https://julian-rincon.github.io/ames-housing-ml/SAVI_v2_ParcialFinal.html" target="_blank" class="project-link">Live demo →</a>
         <a href="https://github.com/Julian-Rincon/ames-housing-ml" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">🧬</div>
-          <span class="project-status status-done">Done</span>
-        </div>
-        <h3 class="project-name">ML DSL for Machine Learning</h3>
-        <p class="project-desc">Custom domain-specific language built with ANTLR4, supporting linear regression, MLP classifier, K-Means clustering, matrix operations, data visualization, and file I/O — all in a purpose-built syntax.</p>
-        <div class="project-tags">
-          <span class="project-tag">ANTLR4</span>
-          <span class="project-tag">Python</span>
-          <span class="project-tag">scikit-learn</span>
-          <span class="project-tag">Matplotlib</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/Proyecto-Final-L" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">☁️</div>
-          <span class="project-status status-done">Done</span>
-        </div>
-        <h3 class="project-name">Chinook Cloud Data Platform</h3>
-        <p class="project-desc">End-to-end AWS project: React + FastAPI app on EC2 with private RDS PostgreSQL, provisioned via Terraform. Extended into a cloud data warehouse with AWS Glue ETL, S3 (Parquet), Athena, and Power BI — full star schema with CI/CD via GitHub Actions.</p>
-        <div class="project-tags">
-          <span class="project-tag">FastAPI</span>
-          <span class="project-tag">React</span>
-          <span class="project-tag">Terraform</span>
-          <span class="project-tag">AWS Glue</span>
-          <span class="project-tag">Athena</span>
-          <span class="project-tag">Power BI</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/chinook-fullstack" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-
-      <div class="project-card fade-up">
+      <div class="project-card flagship fade-up">
         <div class="project-top">
           <div class="project-icon">🛒</div>
           <span class="project-status status-done">Done</span>
@@ -598,6 +711,67 @@
           <span class="project-tag">Zappa</span>
         </div>
         <a href="https://github.com/Julian-Rincon/shopstream-bigdata" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card flagship fade-up">
+        <div class="project-top">
+          <div class="project-icon">☁️</div>
+          <span class="project-status status-done">Done</span>
+        </div>
+        <h3 class="project-name">Chinook Cloud Data Platform</h3>
+        <p class="project-desc">End-to-end AWS project, built as a 3-person team with Juan Hurtado and David Martinez for our Big Data course: React + FastAPI app on EC2 with private RDS PostgreSQL, provisioned via Terraform. Extended into a cloud data warehouse with AWS Glue ETL, S3 (Parquet), Athena, and Power BI, with a full star schema and CI/CD via GitHub Actions.</p>
+        <div class="project-tags">
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">React</span>
+          <span class="project-tag">Terraform</span>
+          <span class="project-tag">AWS Glue</span>
+          <span class="project-tag">Athena</span>
+          <span class="project-tag">Power BI</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/chinook-cloud-platform" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+    </div>
+
+    <button class="projects-more-toggle fade-up" id="moreProjectsToggle" type="button" aria-expanded="false" aria-controls="moreProjects">
+      Show 5 more projects (NEXUS, ML DSL, HPC, network analysis, logic gates) ▾
+    </button>
+
+    <div class="projects-grid projects-more" id="moreProjects" hidden>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">🤖</div>
+          <span class="project-status status-active">Active · Private repo</span>
+        </div>
+        <h3 class="project-name">NEXUS</h3>
+        <p class="project-desc">Personal AI system I run day to day to manage my own machine, not just chat with it: multi-provider LLM routing, dozens of self-discovered skills across home automation and personal finance, and a hybrid local/GCP deployment. Closed-source by design, since it touches my finances and home systems, so the public repo documents the architecture and decisions rather than shipping the implementation.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Architecture docs public · code private</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">MCP</span>
+          <span class="project-tag">GCP</span>
+          <span class="project-tag">Deepgram</span>
+          <span class="project-tag">ElevenLabs</span>
+          <span class="project-tag">ChromaDB</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" class="project-link">View architecture docs →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">🧬</div>
+          <span class="project-status status-done">Done</span>
+        </div>
+        <h3 class="project-name">ML DSL for Machine Learning</h3>
+        <p class="project-desc">Custom domain-specific language built with ANTLR4, supporting linear regression, MLP classifier, K-Means clustering, matrix operations, data visualization, and file I/O, all in a purpose-built syntax.</p>
+        <div class="project-tags">
+          <span class="project-tag">ANTLR4</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">Matplotlib</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/Proyecto-Final-L" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card fade-up">
@@ -649,38 +823,50 @@
         <a href="https://github.com/Julian-Rincon/Computadpr-Origami" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">🤖</div>
-          <span class="project-status status-award">🥇 1st Place</span>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div style="max-width:1100px;margin:0 auto;">
+    <p class="section-label fade-up">Leadership &amp; Impact</p>
+    <h2 class="section-title fade-up">Two 1st places, won away from a keyboard.</h2>
+    <p class="section-desc fade-up">Not every hard problem is technical. These are the two times I had to design, pitch, and represent, not just build.</p>
+
+    <div class="leadership-grid">
+
+      <div class="leadership-card fade-up">
+        <div class="leadership-top">
+          <div class="leadership-badge">🥇 1st Place</div>
         </div>
-        <h3 class="project-name">USABOT Robotics Challenge</h3>
-        <p class="project-desc">Led hardware design and commercial strategy for an intelligent automatic irrigation system — winning 1st place overall against competing university teams. Designed the 3D CAD model for the physical prototype, integrated ultrasonic sensor architecture for real-time water level detection and automated valve control, and authored the go-to-market strategy delivered in the final pitch to judges.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Cyber-physical systems · CAD · Sensors · Pitch winner</div>
-        <div class="project-tags">
-          <span class="project-tag">C++</span>
-          <span class="project-tag">Arduino</span>
-          <span class="project-tag">CAD 3D</span>
-          <span class="project-tag">Ultrasonic Sensors</span>
-          <span class="project-tag">Product Strategy</span>
+        <h3 class="leadership-name">USABOT Robotics Challenge</h3>
+        <p class="leadership-role">3D CAD · Sensor architecture · Commercial pitch</p>
+        <p class="leadership-quote">I designed the sensor architecture, then had to convince judges who cared about the business case, not the wiring.</p>
+        <p class="leadership-desc">Led hardware design and commercial strategy for an intelligent automatic irrigation system, winning 1st place overall against competing university teams. I designed the 3D CAD model for the physical prototype, integrated ultrasonic sensor architecture for real-time water level detection and automated valve control, and wrote and delivered the go-to-market pitch that sold the idea to judges.</p>
+        <div class="leadership-tags">
+          <span>Cyber-physical systems</span>
+          <span>CAD 3D</span>
+          <span>Sensor integration</span>
+          <span>Product pitch</span>
         </div>
       </div>
 
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">🌐</div>
-          <span class="project-status status-award">🥇 1st Place</span>
+      <div class="leadership-card fade-up">
+        <div class="leadership-top">
+          <div class="leadership-badge">🏆 1st Place, Int'l</div>
         </div>
-        <h3 class="project-name">WarmiTics — Wisibilízalas</h3>
-        <p class="project-desc">Served as Technical Product Manager and Lead Frontend/UX Developer for WarmiTics, a web platform highlighting women leaders in STEM. Architected and built the full application, owned all frontend and UX decisions, managed cross-functional logistics, and conducted structured interviews with women leaders in technology to gather primary content. Won 1st place at Wisibilízalas (Universidad Pompeu Fabra, Barcelona) in the Senior category, competing against teams from Latin America and Europe.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Technical PM · Frontend/UX · Int'l award</div>
-        <div class="project-tags">
-          <span class="project-tag">Frontend</span>
-          <span class="project-tag">UX</span>
-          <span class="project-tag">Product Management</span>
-          <span class="project-tag">Stakeholder Coordination</span>
+        <h3 class="leadership-name">WarmiTics — Wisibilízalas</h3>
+        <p class="leadership-role">Technical PM · Lead Frontend/UX · Age 17</p>
+        <p class="leadership-quote">I interviewed women leaders in tech to build the content, then had to represent my school against teams from two continents.</p>
+        <p class="leadership-desc">Served as Technical Product Manager and Lead Frontend/UX Developer for WarmiTics, a web platform highlighting women leaders in STEM. I architected and built the full application, owned all frontend and UX decisions, managed cross-functional logistics, and conducted structured interviews with women leaders in technology to gather primary content. Won 1st place at Wisibilízalas (Universidad Pompeu Fabra, Barcelona) in the Senior category at age 17, representing my school against teams from across Latin America and Europe.</p>
+        <div class="leadership-tags">
+          <span>Technical PM</span>
+          <span>Frontend/UX</span>
+          <span>User interviews</span>
+          <span>Cross-cultural collaboration</span>
         </div>
-        <a href="https://sites.google.com/view/warmitics" target="_blank" class="project-link">View Project →</a>
+        <a href="https://sites.google.com/view/warmitics" target="_blank" class="project-link" style="color:var(--accent);margin-top:.75rem;">View project →</a>
       </div>
 
     </div>
@@ -706,11 +892,11 @@
       </div>
 
       <div class="exp-item">
-        <div class="exp-date">2024 — present</div>
+        <div class="exp-date">2025 — present</div>
         <div>
-          <h3 class="exp-title">Autonomous Personal AI System — Independent Project</h3>
-          <p class="exp-org">NEXUS · Self-directed</p>
-          <p class="exp-desc">Designed and built an autonomous AI system that manages the machine, not just conversation — 5-tier LLM routing (Cerebras, NVIDIA NIM), 38 self-discovered skills covering home automation, personal finance parsing, and passive security monitoring. Hybrid GCP/local deployment with automated cost governance. Ships an MCP server exposing its capabilities as tools for external AI agents. Safety-gated system control, custom-trained wake word, cloned voice (ElevenLabs), and a native desktop HUD.</p>
+          <h3 class="exp-title">Personal AI System — Independent Project</h3>
+          <p class="exp-org">NEXUS · Self-directed, closed-source</p>
+          <p class="exp-desc">Designed and built a personal AI system that manages my own machine day to day, not just conversation: multi-provider LLM routing, dozens of self-discovered skills covering home automation and personal finance, a hybrid GCP/local deployment with automated cost governance, and an MCP server exposing its capabilities to other AI agents. Closed-source since it touches my finances and home systems; the public repo covers architecture and design decisions.</p>
         </div>
       </div>
 
@@ -719,7 +905,7 @@
         <div>
           <h3 class="exp-title">Custom DSL for Machine Learning</h3>
           <p class="exp-org">Compilers & Language Design · Universidad Sergio Arboleda</p>
-          <p class="exp-desc">Designed and implemented a domain-specific language for ML workflows using ANTLR4. The language supports linear regression, MLP classifiers, K-Means clustering, matrix operations, data plots, and file I/O — with its own grammar, lexer, parser, and visitor pattern execution engine.</p>
+          <p class="exp-desc">Designed and implemented a domain-specific language for ML workflows using ANTLR4. The language supports linear regression, MLP classifiers, K-Means clustering, matrix operations, data plots, and file I/O, with its own grammar, lexer, parser, and visitor pattern execution engine.</p>
         </div>
       </div>
 
@@ -728,7 +914,7 @@
         <div>
           <h3 class="exp-title">AWS Academy Graduate — Data Engineering</h3>
           <p class="exp-org">Amazon Web Services Academy · 40 hours · May 2026</p>
-          <p class="exp-desc">Completed the AWS Academy Data Engineering program covering data ingestion, transformation, storage, and analytics on AWS — including S3, Glue, Athena, EMR, and Redshift. Verified badge on Credly: <a href="https://www.credly.com/go/UGp1CUEB" target="_blank" style="color:var(--blue);font-weight:600;">credly.com/go/UGp1CUEB</a></p>
+          <p class="exp-desc">Completed the AWS Academy Data Engineering program covering data ingestion, transformation, storage, and analytics on AWS, including S3, Glue, Athena, EMR, and Redshift. Verified badge on Credly: <a href="https://www.credly.com/go/UGp1CUEB" target="_blank" style="color:var(--blue);font-weight:600;">credly.com/go/UGp1CUEB</a></p>
         </div>
       </div>
 
@@ -737,7 +923,7 @@
         <div>
           <h3 class="exp-title">Oracle Academy Certifications</h3>
           <p class="exp-org">Oracle Academy · Database Track</p>
-          <p class="exp-desc">Completed two database courses through Oracle Academy: <strong>Database Design</strong> (August 2024) — relational modeling, normalization, ER diagrams — and <strong>Database Programming with SQL</strong> (December 2024) — advanced queries, joins, subqueries, and DML/DDL. Complementary to hands-on work with PostgreSQL (AWS RDS), MySQL, and Athena in production projects.</p>
+          <p class="exp-desc">Completed two database courses through Oracle Academy: <strong>Database Design</strong> (August 2024, relational modeling, normalization, ER diagrams) and <strong>Database Programming with SQL</strong> (December 2024, advanced queries, joins, subqueries, and DML/DDL). Complementary to hands-on work with PostgreSQL (AWS RDS), MySQL, and Athena in production projects.</p>
         </div>
       </div>
 
@@ -747,7 +933,7 @@
           <h3 class="exp-title">🏆 1st Place — Wisibilízalas International Competition</h3>
           <p class="exp-org">Universidad Pompeu Fabra · Barcelona, Spain · Shakespeare School, Ecuador · Senior Category</p>
           <p class="exp-desc">Won first place in an international competition fighting gender stereotypes in technology, organized by Universidad Pompeu Fabra. Represented Shakespeare School (Quito, Ecuador) in the Senior category at age 17, competing against teams from Latin America and Europe. The project consisted of a website highlighting the careers of women in technology and ICT.</p>
-          <a href="https://sites.google.com/view/warmitics" target="_blank" class="project-link" style="margin-top:.75rem;">View winning project — WarmiTics →</a>
+          <a href="https://sites.google.com/view/warmitics" target="_blank" class="project-link" style="margin-top:.75rem;">View winning project: WarmiTics →</a>
         </div>
       </div>
 
@@ -768,7 +954,7 @@
       julianer2002@gmail.com
     </a>
     <div class="cv-dropdown" style="position:relative;display:inline-block;">
-      <button class="contact-link primary" onclick="this.parentElement.querySelector('.cv-menu').classList.toggle('open')" style="cursor:pointer;display:flex;align-items:center;gap:.6rem;">
+      <button class="contact-link primary cv-toggle" type="button" aria-haspopup="true" aria-expanded="false" style="cursor:pointer;display:flex;align-items:center;gap:.6rem;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download CV ▾
       </button>
@@ -792,15 +978,60 @@
   built by Julian Rincón · Colombia · 2026
 </footer>
 
+<!-- COMMAND PALETTE -->
+<div class="cmdk-overlay" id="cmdkOverlay" role="dialog" aria-modal="true" aria-label="Quick navigation">
+  <div class="cmdk-box">
+    <div class="cmdk-input-row">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="cmdk-input" id="cmdkInput" type="text" placeholder="Jump to a section, project, or download the CV…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="cmdkList"/>
+      <span class="cmdk-esc">esc</span>
+    </div>
+    <div class="cmdk-list" id="cmdkList" role="listbox"></div>
+  </div>
+</div>
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Close CV dropdown when clicking outside
-  document.addEventListener('click', function(e) {
-    document.querySelectorAll('.cv-dropdown').forEach(function(d) {
-      if (!d.contains(e.target)) d.querySelector('.cv-menu').classList.remove('open');
+  // ── CV dropdown (accessible: click, keyboard, escape, outside-click) ──
+  document.querySelectorAll('.cv-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const menu = btn.parentElement.querySelector('.cv-menu');
+      const willOpen = !menu.classList.contains('open');
+      document.querySelectorAll('.cv-menu').forEach(m => m.classList.remove('open'));
+      document.querySelectorAll('.cv-toggle').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (willOpen) {
+        menu.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.cv-dropdown').forEach(function (d) {
+      if (!d.contains(e.target)) {
+        d.querySelector('.cv-menu').classList.remove('open');
+        d.querySelector('.cv-toggle').setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.cv-menu').forEach(m => m.classList.remove('open'));
+      document.querySelectorAll('.cv-toggle').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    }
+  });
 
-  // Fade-up on scroll
+  // ── Mobile nav ──
+  const navBurger = document.getElementById('navBurger');
+  const navPanel = document.getElementById('navMobilePanel');
+  navBurger.addEventListener('click', function () {
+    const open = navPanel.classList.toggle('open');
+    navBurger.setAttribute('aria-expanded', String(open));
+  });
+  navPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navPanel.classList.remove('open');
+    navBurger.setAttribute('aria-expanded', 'false');
+  }));
+
+  // ── Fade-up on scroll ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -809,13 +1040,165 @@
       }
     });
   }, { threshold: 0.12 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   // Stagger project cards
   document.querySelectorAll('.project-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 0.07}s`;
+    card.style.transitionDelay = `${(i % 5) * 0.07}s`;
   });
+
+  // ── "Show more projects" toggle ──
+  const moreToggle = document.getElementById('moreProjectsToggle');
+  const moreProjects = document.getElementById('moreProjects');
+  moreToggle.addEventListener('click', function () {
+    const willShow = moreProjects.hasAttribute('hidden');
+    if (willShow) {
+      moreProjects.removeAttribute('hidden');
+      moreProjects.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      moreToggle.textContent = 'Show fewer projects ▴';
+    } else {
+      moreProjects.setAttribute('hidden', '');
+      moreToggle.textContent = 'Show 5 more projects (NEXUS, ML DSL, HPC, network analysis, logic gates) ▾';
+    }
+    moreToggle.setAttribute('aria-expanded', String(willShow));
+  });
+
+  // ── Scrollspy: highlight the active nav tab ──
+  const navLinks = document.querySelectorAll('.nav-links a[data-tab]');
+  const spySections = ['about', 'projects', 'leadership', 'experience', 'contact']
+    .map(id => document.getElementById(id)).filter(Boolean);
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  spySections.forEach(s => spyObserver.observe(s));
+
+  // ── Live GitHub activity signal ──
+  (function () {
+    const el = document.getElementById('liveSignal');
+    const textEl = document.getElementById('liveSignalText');
+    const CACHE_KEY = 'gh-last-push-julian-rincon';
+    const CACHE_TTL = 60 * 60 * 1000; // 1h
+
+    function render(pushedAt) {
+      const days = Math.floor((Date.now() - new Date(pushedAt).getTime()) / 86400000);
+      const label = days <= 0 ? 'shipped something today'
+        : days === 1 ? 'shipped something yesterday'
+        : `shipped something ${days}d ago`;
+      textEl.textContent = label + ' · github.com/Julian-Rincon';
+      el.classList.add('ready');
+    }
+
+    try {
+      const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+      if (cached && Date.now() - cached.fetchedAt < CACHE_TTL) {
+        render(cached.pushedAt);
+        return;
+      }
+    } catch (_) {}
+
+    fetch('https://api.github.com/users/Julian-Rincon/repos?sort=pushed&direction=desc&per_page=1')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(repos => {
+        if (!repos || !repos[0]) throw new Error('no repos');
+        const pushedAt = repos[0].pushed_at;
+        localStorage.setItem(CACHE_KEY, JSON.stringify({ pushedAt, fetchedAt: Date.now() }));
+        render(pushedAt);
+      })
+      .catch(() => { /* fail silently, badge stays hidden */ });
+  })();
+
+  // ── Command palette (⌘K / Ctrl+K) ──
+  (function () {
+    const overlay = document.getElementById('cmdkOverlay');
+    const input = document.getElementById('cmdkInput');
+    const list = document.getElementById('cmdkList');
+    const trigger = document.getElementById('cmdkTrigger');
+    const modKeyLabel = document.getElementById('cmdkModKey');
+
+    if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) {
+      modKeyLabel.textContent = '⌘';
+    } else {
+      modKeyLabel.textContent = 'Ctrl';
+    }
+
+    const items = [
+      { tag: 'Section', label: 'About', run: () => go('#about') },
+      { tag: 'Section', label: 'Projects', run: () => go('#projects') },
+      { tag: 'Section', label: 'Leadership & Impact', run: () => go('#leadership') },
+      { tag: 'Section', label: 'Experience', run: () => go('#experience') },
+      { tag: 'Section', label: 'Contact', run: () => go('#contact') },
+      { tag: 'Project', label: 'SAVI v2 — live demo', run: () => open('https://julian-rincon.github.io/ames-housing-ml/SAVI_v2_ParcialFinal.html') },
+      { tag: 'Project', label: 'ShopStream — GitHub', run: () => open('https://github.com/Julian-Rincon/shopstream-bigdata') },
+      { tag: 'Project', label: 'Chinook — GitHub', run: () => open('https://github.com/Julian-Rincon/chinook-cloud-platform') },
+      { tag: 'Action', label: 'Download CV (English)', run: () => open('CV_Julian_Rincon_EN.pdf') },
+      { tag: 'Action', label: 'Download CV (Español)', run: () => open('CV_Julian_Rincon.pdf') },
+      { tag: 'Action', label: 'Open GitHub profile', run: () => open('https://github.com/Julian-Rincon') },
+      { tag: 'Action', label: 'Open LinkedIn', run: () => open('https://www.linkedin.com/in/julian-esteban-rinc%C3%B3n-rodriguez-1a05501b7/') },
+      { tag: 'Action', label: 'Send an email', run: () => open('mailto:julianer2002@gmail.com') },
+    ];
+
+    function go(hash) { document.querySelector(hash).scrollIntoView({ behavior: 'smooth' }); }
+    function open(url) { window.open(url, '_blank'); }
+
+    let activeIndex = 0;
+
+    function renderList(query) {
+      const q = (query || '').toLowerCase().trim();
+      const filtered = items.filter(it => it.label.toLowerCase().includes(q) || it.tag.toLowerCase().includes(q));
+      list.innerHTML = '';
+      if (!filtered.length) {
+        list.innerHTML = '<div class="cmdk-empty">No matches.</div>';
+        return;
+      }
+      activeIndex = Math.min(activeIndex, filtered.length - 1);
+      filtered.forEach((it, i) => {
+        const row = document.createElement('div');
+        row.className = 'cmdk-item' + (i === activeIndex ? ' active' : '');
+        row.setAttribute('role', 'option');
+        row.innerHTML = `<span class="cmdk-label">${it.label}</span><span class="cmdk-tag">${it.tag}</span>`;
+        row.addEventListener('mouseenter', () => { activeIndex = i; renderList(input.value); });
+        row.addEventListener('click', () => { it.run(); closePalette(); });
+        list.appendChild(row);
+      });
+      list._filtered = filtered;
+    }
+
+    function openPalette() {
+      overlay.classList.add('open');
+      input.value = '';
+      activeIndex = 0;
+      renderList('');
+      setTimeout(() => input.focus(), 10);
+    }
+    function closePalette() {
+      overlay.classList.remove('open');
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', openPalette);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closePalette(); });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        overlay.classList.contains('open') ? closePalette() : openPalette();
+      } else if (e.key === 'Escape' && overlay.classList.contains('open')) {
+        closePalette();
+      }
+    });
+
+    input.addEventListener('input', () => { activeIndex = 0; renderList(input.value); });
+    input.addEventListener('keydown', (e) => {
+      const filtered = list._filtered || [];
+      if (e.key === 'ArrowDown') { e.preventDefault(); activeIndex = Math.min(activeIndex + 1, filtered.length - 1); renderList(input.value); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); renderList(input.value); }
+      else if (e.key === 'Enter') { e.preventDefault(); if (filtered[activeIndex]) { filtered[activeIndex].run(); closePalette(); } }
+    });
+  })();
 </script>
 </body>
 </html>
