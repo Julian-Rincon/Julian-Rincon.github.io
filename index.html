@@ -214,6 +214,9 @@
       display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 1.5rem; max-width: 1100px; margin: 0 auto;
     }
+    /* [hidden] and .projects-grid{display:grid} tie on specificity, and author CSS
+       beats the UA stylesheet — without this, "hidden" more-projects stayed visible. */
+    .projects-grid[hidden] { display: none; }
     .project-card {
       background: #fff; border: 1px solid var(--border);
       border-radius: 16px; padding: 1.75rem;
@@ -1111,7 +1114,7 @@
       moreToggle.textContent = 'Show fewer projects ▴';
     } else {
       moreProjects.setAttribute('hidden', '');
-      moreToggle.textContent = 'Show 5 more projects (NEXUS, ML DSL, HPC, network analysis, logic gates) ▾';
+      moreToggle.textContent = 'Show 8 more projects (NEXUS, Victor, Ayuda Terremoto Colombia, NLP API, ML DSL, HPC, network analysis, logic gates) ▾';
     }
     moreToggle.setAttribute('aria-expanded', String(willShow));
   });
