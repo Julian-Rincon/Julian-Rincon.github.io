@@ -734,7 +734,7 @@
     </div>
 
     <button class="projects-more-toggle fade-up" id="moreProjectsToggle" type="button" aria-expanded="false" aria-controls="moreProjects">
-      Show 5 more projects (NEXUS, ML DSL, HPC, network analysis, logic gates) ▾
+      Show 6 more projects (NEXUS, Victor, ML DSL, HPC, network analysis, logic gates) ▾
     </button>
 
     <div class="projects-grid projects-more" id="moreProjects" hidden>
@@ -756,6 +756,25 @@
           <span class="project-tag">ChromaDB</span>
         </div>
         <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" class="project-link">View architecture docs →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">🏎️</div>
+          <span class="project-status status-active">Active</span>
+        </div>
+        <h3 class="project-name">Victor — AI Race Engineer</h3>
+        <p class="project-desc">Voice-driven race engineer for Assetto Corsa, native on Linux. A C reader running under the same Proton prefix as the game pulls telemetry straight from AC's shared memory; a separate Linux daemon runs the deterministic spotter and alerts, calculates pit strategy, and answers free-form voice questions through a four-provider LLM chain (Groq, Cerebras, NVIDIA NIM, Gemini) behind a circuit breaker, with Piper for speech synthesis.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">143 tests · CI green on Python 3.10 & 3.12</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">C</span>
+          <span class="project-tag">Wine/Proton</span>
+          <span class="project-tag">Groq</span>
+          <span class="project-tag">Piper TTS</span>
+          <span class="project-tag">pytest</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/victor-race-engineer" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card fade-up">
