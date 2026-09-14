@@ -737,7 +737,7 @@
     </div>
 
     <button class="projects-more-toggle fade-up" id="moreProjectsToggle" type="button" aria-expanded="false" aria-controls="moreProjects">
-      Show 8 more projects (NEXUS, Victor, Ayuda Terremoto Colombia, NLP API, ML DSL, HPC, network analysis, logic gates) ▾
+      Show 9 more projects (NEXUS, ReushiGo, Victor, Ayuda Terremoto Colombia, NLP API, ML DSL, HPC, network analysis, logic gates) ▾
     </button>
 
     <div class="projects-grid projects-more" id="moreProjects" hidden>
@@ -759,6 +759,23 @@
           <span class="project-tag">ChromaDB</span>
         </div>
         <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" class="project-link">View architecture docs →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-top">
+          <div class="project-icon">☕</div>
+          <span class="project-status status-active">Live · Private repo</span>
+        </div>
+        <h3 class="project-name">ReushiGo</h3>
+        <p class="project-desc">Full-stack ordering platform built for a family coffee distribution business: a React/Vite/Tailwind admin panel, an Express/Prisma backend with admin-key auth and rate limiting, and a Telegram sales bot that takes natural-language orders over a live 19-product catalog. CI on GitHub Actions runs lint, build, npm audit, and tests. Closed-source since it runs a real business's orders; the admin panel is live.</p>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">Express</span>
+          <span class="project-tag">Prisma</span>
+          <span class="project-tag">Telegram Bot API</span>
+          <span class="project-tag">GitHub Actions</span>
+        </div>
+        <a href="https://reushi-go.vercel.app" target="_blank" class="project-link">View live app →</a>
       </div>
 
       <div class="project-card fade-up">
@@ -957,11 +974,20 @@
       </div>
 
       <div class="exp-item">
+        <div class="exp-date">June 2026</div>
+        <div>
+          <h3 class="exp-title">Full-Stack & AI Developer (Freelance)</h3>
+          <p class="exp-org">Zafra Asesores Tributarios · Girardot, Colombia</p>
+          <p class="exp-desc">Built a complete sales CRM for a tax advisory firm: FastAPI/SQLAlchemy backend modeling clients, prospects, campaigns, and interactions, with a React/Vite frontend for pipeline management. Added an AI layer on Groq (Llama 3.3 70B) for interaction summaries, email drafting, and lead scoring, plus a qualification bot on the WhatsApp Cloud API. Delivered and demoed to the client with technical documentation and a defined scope for the remaining work (authentication, continuous deployment).</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
         <div class="exp-date">2024</div>
         <div>
           <h3 class="exp-title">Custom DSL for Machine Learning</h3>
           <p class="exp-org">Compilers & Language Design · Universidad Sergio Arboleda</p>
-          <p class="exp-desc">Designed and implemented a domain-specific language for ML workflows using ANTLR4. The language supports linear regression, MLP classifiers, K-Means clustering, matrix operations, data plots, and file I/O, with its own grammar, lexer, parser, and visitor pattern execution engine.</p>
+          <p class="exp-desc">Designed and implemented a domain-specific language for ML workflows using ANTLR4: a grammar, generated parser, and a Visitor-pattern interpreter that trains and evaluates a K-Means model through purpose-built syntax instead of raw Python.</p>
         </div>
       </div>
 
@@ -980,6 +1006,15 @@
           <h3 class="exp-title">Oracle Academy Certifications</h3>
           <p class="exp-org">Oracle Academy · Database Track</p>
           <p class="exp-desc">Completed two database courses through Oracle Academy: <strong>Database Design</strong> (August 2024, relational modeling, normalization, ER diagrams) and <strong>Database Programming with SQL</strong> (December 2024, advanced queries, joins, subqueries, and DML/DDL). Complementary to hands-on work with PostgreSQL (AWS RDS), MySQL, and Athena in production projects.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2025</div>
+        <div>
+          <h3 class="exp-title">English Proficiency — B2 Global (iTEP Academic-Plus)</h3>
+          <p class="exp-org">International Test of English Proficiency · November 2025</p>
+          <p class="exp-desc">Certified B2 overall, with Listening at C1 and Reading and Speaking at B2.</p>
         </div>
       </div>
 
@@ -1114,7 +1149,7 @@
       moreToggle.textContent = 'Show fewer projects ▴';
     } else {
       moreProjects.setAttribute('hidden', '');
-      moreToggle.textContent = 'Show 8 more projects (NEXUS, Victor, Ayuda Terremoto Colombia, NLP API, ML DSL, HPC, network analysis, logic gates) ▾';
+      moreToggle.textContent = 'Show 9 more projects (NEXUS, ReushiGo, Victor, Ayuda Terremoto Colombia, NLP API, ML DSL, HPC, network analysis, logic gates) ▾';
     }
     moreToggle.setAttribute('aria-expanded', String(willShow));
   });
