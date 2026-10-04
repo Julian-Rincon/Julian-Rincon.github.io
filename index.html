@@ -4,6 +4,12 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Julian Rincón — CS & AI Portfolio</title>
+  <meta name="description" content="Julian Rincón — final-semester CS &amp; AI student in Bogotá building ML systems, data pipelines on AWS and AI agent tooling. Open to ML / Data Engineering internships (Jan – Jun 2027)."/>
+  <meta property="og:title" content="Julian Rincón — ML &amp; Data Engineering Portfolio"/>
+  <meta property="og:description" content="SAVI (RL + RAG valuation agent on AWS), Phantom (multi-agent coding workspace), ShopStream (AWS Big Data pipeline) and more."/>
+  <meta property="og:image" content="https://julian-rincon.github.io/assets/projects/savi.jpg"/>
+  <meta property="og:url" content="https://julian-rincon.github.io/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231B4F8A'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' text-anchor='middle' fill='white'>J</text></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -232,9 +238,16 @@
       margin-bottom: 1rem;
     }
     .project-icon {
-      font-size: 1.8rem; width: 52px; height: 52px;
+      font-family: 'DM Mono', monospace; font-size: .78rem; font-weight: 500;
+      letter-spacing: .04em; color: var(--blue);
+      min-width: 52px; height: 52px; padding: 0 .6rem;
       display: flex; align-items: center; justify-content: center;
-      background: var(--light); border-radius: 12px;
+      background: var(--light); border: 1px solid var(--border); border-radius: 12px;
+    }
+    .project-cover {
+      display: block; width: calc(100% + 3.5rem); height: auto; aspect-ratio: 2 / 1;
+      object-fit: cover; margin: -1.75rem -1.75rem 1.25rem;
+      border-radius: 16px 16px 0 0; border-bottom: 1px solid var(--border);
     }
     .project-status {
       font-family: 'DM Mono', monospace; font-size: .65rem; font-weight: 500;
@@ -243,6 +256,7 @@
     }
     .status-active { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
     .status-done   { background: #E3F2FD; color: #1565C0; border: 1px solid #90CAF9; }
+    .status-archived { background: #F1F3F6; color: #5A6B85; border: 1px solid #D5DCE6; }
     .status-award  { background: #FDF6E8; color: #9A6B12; border: 1px solid #E8D2A0; }
     .project-name {
       font-family: 'DM Serif Display', serif;
@@ -555,8 +569,8 @@
           Download CV ▾
         </button>
         <div class="cv-menu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border:1.5px solid var(--border);border-radius:8px;min-width:180px;box-shadow:0 8px 24px rgba(15,30,53,.12);z-index:200;">
-          <a href="CV_Julian_Rincon_EN.pdf" target="_blank" style="display:block;padding:.75rem 1.25rem;font-size:.85rem;font-weight:600;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--border);">🇬🇧 English</a>
-          <a href="CV_Julian_Rincon.pdf" target="_blank" style="display:block;padding:.75rem 1.25rem;font-size:.85rem;font-weight:600;color:var(--blue);text-decoration:none;">🇨🇴 Español</a>
+          <a href="CV_Julian_Rincon_EN.pdf" target="_blank" style="display:block;padding:.75rem 1.25rem;font-size:.85rem;font-weight:600;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--border);">English (EN)</a>
+          <a href="CV_Julian_Rincon.pdf" target="_blank" style="display:block;padding:.75rem 1.25rem;font-size:.85rem;font-weight:600;color:var(--blue);text-decoration:none;">Español (ES)</a>
         </div>
       </div>
     </div>
@@ -572,9 +586,9 @@
     <div class="code-block">
       <span class="code-key">julian</span> <span class="code-punct">= {</span><br/>
       &nbsp;&nbsp;<span class="code-str">"degree"</span><span class="code-punct">:</span> <span class="code-arr">"CS &amp; AI, final semester (9/9)"</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"focus"</span><span class="code-punct">:</span> <span class="code-arr">["ML Engineering", "Data Engineering", "Cloud Systems"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"shipped"</span><span class="code-punct">:</span> <span class="code-arr">["SAVI v2", "ShopStream", "NEXUS"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"stack"</span><span class="code-punct">:</span> <span class="code-arr">["Python", "AWS", "PyTorch", "Terraform"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"focus"</span><span class="code-punct">:</span> <span class="code-arr">["ML Engineering", "Data Engineering", "AI Agents"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"shipped"</span><span class="code-punct">:</span> <span class="code-arr">["SAVI v3", "Phantom", "ShopStream"]</span><span class="code-punct">,</span><br/>
+      &nbsp;&nbsp;<span class="code-str">"stack"</span><span class="code-punct">:</span> <span class="code-arr">["Python", "AWS", "PyTorch", "Rust"]</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"leadership"</span><span class="code-punct">:</span> <span class="code-arr">["USABOT (1st place)", "WarmiTics (1st, int'l)"]</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"goal"</span><span class="code-punct">:</span> <span class="code-arr">"ML internship, then an MSc in Germany"</span><span class="code-punct">,</span><br/>
       &nbsp;&nbsp;<span class="code-str">"open_to"</span><span class="code-punct">:</span> <span class="code-arr">["internships", "research collabs"]</span><br/>
@@ -593,7 +607,7 @@
         I'm a 9th-semester (final term) Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure: AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        On the data side, I architected <strong>ShopStream</strong>, an end-to-end AWS Big Data pipeline processing 2.5M synthetic events through S3, Lambda validation, EMR/PySpark analytics, Glue ETL and a Flask API. On the decision-systems side, <strong>SAVI v2</strong> combines MDP, Q-Learning and Deep Q-Networks into a consensus policy that autonomously approves or escalates real estate valuations, with an XGBoost baseline scoring R²=0.9609. I also maintain <strong>NEXUS</strong>, a personal AI system that runs my own machine day to day: multi-provider LLM routing, dozens of self-discovered skills, and a home/GCP deployment. It's closed-source by design, since it touches my finances and home systems, so the public repo documents the architecture instead of shipping the code.
+        On the ML side, I took <strong>SAVI</strong>, a team reinforcement-learning project from our Machine Learning course, and rebuilt it on my own as a cloud-native agent: I audited the original, found its headline R²=0.96 came from padded data, rebuilt the dataset from real public sources, and shipped an event-driven AWS pipeline (S3, Lambda, EC2, SageMaker) with a RAG agent on a public URL, reporting results honestly, including where RL doesn't beat the baseline. On the data side, <strong>ShopStream</strong> pushes 2.5M events through Lambda validation, EMR/PySpark, Glue ETL and a warehouse on RDS. And I build the agent tooling I use every day: <strong>Phantom</strong>, a local workspace where Claude Code, OpenCode and Hermes share one timeline and delegate to each other, built in Rust and TypeScript on a fork of the open-source Codeg.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
         Beyond software, I care about showing up on bigger stages than the ones I started on. At 17 I represented my school in Ecuador at an international competition in Barcelona, and years later that same instinct, to compete and build somewhere bigger than my own classroom, is what's pointing me toward an internship now and an MSc in Germany after. More on that (and on USABOT) in <a href="#leadership" style="color:var(--blue);font-weight:600;text-decoration:none;">Leadership &amp; Impact</a> below.
@@ -604,15 +618,15 @@
           <span class="stat-label">Semester of 9</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">0.96</span>
-          <span class="stat-label">R² · SAVI v2 valuation model</span>
+          <span class="stat-num">0.921</span>
+          <span class="stat-label">R² (log) · SAVI v3, real sales</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">🥇 1st</span>
+          <span class="stat-num">1st</span>
           <span class="stat-label">USABOT Robotics Challenge</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">🏆 1st</span>
+          <span class="stat-num">1st</span>
           <span class="stat-label">Wisibilízalas Int'l Competition</span>
         </div>
       </div>
@@ -678,48 +692,112 @@
     <div class="projects-flagship">
 
       <div class="project-card flagship fade-up">
+        <img class="project-cover" src="assets/projects/savi.jpg" alt="SAVI — Autonomous Real-Estate Valuation Agent presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
-          <div class="project-icon">🏠</div>
-          <span class="project-status status-active">Active</span>
+          <span class="project-status status-done">Finished</span>
         </div>
-        <h3 class="project-name">SAVI v2 — Autonomous Real Estate Valuation</h3>
-        <p class="project-desc">End-to-end ML system built with a 3-person team (Valeria Larea, Nicolás Garzón, Juan Niño) for our Machine Learning course: a full RL pipeline combining MDP Value Iteration, Q-Learning (8,000 episodes), and a Deep Q-Network (PyTorch) trained on 20,203 properties. Consensus policy across all three agents decides whether to APPROVE, REVIEW, or REJECT each valuation based on expected financial risk. Includes an IEEE-format technical paper.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">XGBoost R²=0.9609 · 3 RL agents · consensus policy</div>
+        <h3 class="project-name">SAVI — Autonomous Real-Estate Valuation Agent</h3>
+        <p class="project-desc">Reinforcement learning decides when a lender can trust an automatic valuation: APPROVE, human REVIEW, or REJECT. v1–v2 were a team project for our Machine Learning course (with Valeria Larea, Nicolás Garzón and Juan Niño). For v3 I worked alone: audited v2, rebuilt the dataset from real public sources, and re-engineered it as an event-driven AWS pipeline (S3 → Lambda → EC2 → SageMaker) with a RAG agent and web app on a public URL. Results are reported honestly, including where RL does not beat the baseline.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">R²(log) 0.921 · MAPE 7.8% · 191 tests · &lt;US$0.05 per run</div>
         <div class="project-tags">
           <span class="project-tag">XGBoost</span>
-          <span class="project-tag">MDP</span>
-          <span class="project-tag">Q-Learning</span>
-          <span class="project-tag">DQN</span>
+          <span class="project-tag">Double DQN</span>
           <span class="project-tag">PyTorch</span>
-          <span class="project-tag">K-Means</span>
+          <span class="project-tag">AWS Lambda</span>
+          <span class="project-tag">SageMaker</span>
+          <span class="project-tag">RAG</span>
         </div>
-        <a href="https://julian-rincon.github.io/ames-housing-ml/SAVI_v2_ParcialFinal.html" target="_blank" class="project-link">Live demo →</a>
-        <a href="https://github.com/Julian-Rincon/ames-housing-ml" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://5w442qdw5roag3chtm6esbohfu0mwaap.lambda-url.us-east-1.on.aws/" target="_blank" rel="noopener" class="project-link">Live demo →</a>
+        <a href="https://github.com/Julian-Rincon/ames-housing-ml" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card flagship fade-up">
+        <img class="project-cover" src="assets/projects/phantom.jpg" alt="Phantom — Multi-Agent Coding Workspace presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
-          <div class="project-icon">🛒</div>
-          <span class="project-status status-done">Done</span>
+          <span class="project-status status-active">Active</span>
+        </div>
+        <h3 class="project-name">Phantom — Multi-Agent Coding Workspace</h3>
+        <p class="project-desc">One local interface for Claude Code, OpenCode and Hermes Agent: a single timeline, one model selector, and delegation between agents via @mentions. Built on my fork of the open-source Codeg workspace (Apache-2.0). I added OpenCode 2.x history import, a model scorecard that ranks models from measured session history and drives delegation and quota failover, a fully local voice mode (Whisper + Kokoro), a Telegram bridge, and a native Wayland overlay built with Tauri, and I keep the fork merged with upstream releases.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Rust + TypeScript · loopback-only · systemd services</div>
+        <div class="project-tags">
+          <span class="project-tag">Rust</span>
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag">Tauri</span>
+          <span class="project-tag">MCP</span>
+          <span class="project-tag">Whisper</span>
+          <span class="project-tag">KDE Plasma</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/phantom" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card flagship fade-up">
+        <img class="project-cover" src="assets/projects/shopstream.jpg" alt="ShopStream Big Data Pipeline presentation cover" loading="lazy" width="1600" height="800"/>
+        <div class="project-top">
+          <span class="project-status status-done">Finished</span>
         </div>
         <h3 class="project-name">ShopStream Big Data Pipeline</h3>
-        <p class="project-desc">End-to-end AWS big data pipeline for a fictional e-commerce platform. Generates 2.5M synthetic behavioral events, validates ingestion via S3-triggered Lambda with CloudWatch metrics, processes with PySpark on EMR, loads a star schema into RDS PostgreSQL via Glue ETL, and exposes analytics through a Flask API deployed with Zappa.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">2.5M events · Lambda · EMR · Glue · Zappa · CI/CD</div>
+        <p class="project-desc">End-to-end AWS big data pipeline for a fictional e-commerce platform. Generates 2.5M synthetic behavioral events, validates ingestion via S3-triggered Lambda with CloudWatch metrics and quarantine, processes with PySpark on EMR, loads a star schema into RDS PostgreSQL via Glue ETL, and exposes analytics through a Flask API deployed with Zappa.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">2.5M events · 86% test coverage · CI/CD</div>
         <div class="project-tags">
           <span class="project-tag">PySpark</span>
           <span class="project-tag">AWS Lambda</span>
-          <span class="project-tag">AWS Glue</span>
           <span class="project-tag">EMR</span>
+          <span class="project-tag">AWS Glue</span>
           <span class="project-tag">Flask</span>
           <span class="project-tag">Zappa</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/shopstream-bigdata" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/shopstream-bigdata" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card flagship fade-up">
+    </div>
+
+    <button class="projects-more-toggle fade-up" id="moreProjectsToggle" type="button" aria-expanded="false" aria-controls="moreProjects">
+      Show 11 more projects ▾
+    </button>
+
+    <div class="projects-grid projects-more" id="moreProjects" hidden>
+
+      <div class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/victor.jpg" alt="Victor — AI Race Engineer presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
-          <div class="project-icon">☁️</div>
-          <span class="project-status status-done">Done</span>
+          <span class="project-status status-active">Active</span>
+        </div>
+        <h3 class="project-name">Victor — AI Race Engineer</h3>
+        <p class="project-desc">Voice-driven race engineer for Assetto Corsa, native on Linux. A C reader running under the same Proton prefix as the game pulls telemetry straight from AC's shared memory; a Linux daemon runs the deterministic spotter and alerts, calculates pit strategy, and answers free-form voice questions through a four-provider LLM chain behind a circuit breaker, with Piper for speech synthesis.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">143 tests · CI green on Python 3.10 &amp; 3.12</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">C</span>
+          <span class="project-tag">Wine/Proton</span>
+          <span class="project-tag">Groq</span>
+          <span class="project-tag">Piper TTS</span>
+          <span class="project-tag">pytest</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/victor-race-engineer" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/ayuda-terremoto.jpg" alt="Ayuda Terremoto Colombia presentation cover" loading="lazy" width="1600" height="800"/>
+        <div class="project-top">
+          <span class="project-status status-active">Active</span>
+        </div>
+        <h3 class="project-name">Ayuda Terremoto Colombia</h3>
+        <p class="project-desc">Independent, open-source humanitarian coordination system built in response to the real magnitude-7.4 earthquake that struck Chocó, Colombia on August 10, 2026 — not an officially adopted tool of the government or the NGOs running the response. A FastAPI/PostgreSQL national node coordinates with offline-first React/IndexedDB field nodes that sync once connectivity returns, with fuzzy-match deduplication, USGS-triggered activation and HXL export.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">80+ backend tests · outside contributions merged</div>
+        <div class="project-tags">
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">React</span>
+          <span class="project-tag">IndexedDB</span>
+          <span class="project-tag">GitHub Actions</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/ayuda-terremoto-colombia" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/chinook.jpg" alt="Chinook Cloud Data Platform presentation cover" loading="lazy" width="1600" height="800"/>
+        <div class="project-top">
+          <span class="project-status status-done">Finished</span>
         </div>
         <h3 class="project-name">Chinook Cloud Data Platform</h3>
         <p class="project-desc">End-to-end AWS project, built as a 3-person team with Juan Hurtado and David Martinez for our Big Data course: React + FastAPI app on EC2 with private RDS PostgreSQL, provisioned via Terraform. Extended into a cloud data warehouse with AWS Glue ETL, S3 (Parquet), Athena, and Power BI, with a full star schema and CI/CD via GitHub Actions.</p>
@@ -731,39 +809,64 @@
           <span class="project-tag">Athena</span>
           <span class="project-tag">Power BI</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/chinook-cloud-platform" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/chinook-cloud-platform" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-    </div>
-
-    <button class="projects-more-toggle fade-up" id="moreProjectsToggle" type="button" aria-expanded="false" aria-controls="moreProjects">
-      Show 9 more projects (NEXUS, ReushiGo, Victor, Ayuda Terremoto Colombia, NLP API, ML DSL, HPC, network analysis, logic gates) ▾
-    </button>
-
-    <div class="projects-grid projects-more" id="moreProjects" hidden>
+      <div class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/sentiment140.jpg" alt="Sentiment140 Lab presentation cover" loading="lazy" width="1600" height="800"/>
+        <div class="project-top">
+          <span class="project-status status-done">Finished</span>
+        </div>
+        <h3 class="project-name">Sentiment140 Lab</h3>
+        <p class="project-desc">Team of five for our NLP course. Preprocessing, representation and classifier compared stage by stage under a fixed, seeded protocol tracked in MLflow; the champion (TF-IDF unigrams+bigrams with logistic regression) was retrained on 1.36M tweets, evaluated once on test, registered in the Model Registry and served by a public FastAPI on EC2. I ran the tracking server, the API and the audit notebook.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">test macro-F1 0.824 · MLflow registry</div>
+        <div class="project-tags">
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">MLflow</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">AWS EC2</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/sentiment140-lab2" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </div>
 
       <div class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/nlp-pipeline-api.jpg" alt="NLP Pipeline API presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
-          <div class="project-icon">🤖</div>
-          <span class="project-status status-active">Active · Private repo</span>
+          <span class="project-status status-done">Finished</span>
+        </div>
+        <h3 class="project-name">NLP Pipeline API</h3>
+        <p class="project-desc">Team project for a Natural Language Processing course: a spaCy/FastAPI microservice for POS tagging, lemmatization, NER, and dependency parsing, plus TF-IDF/BoW/one-hot vectorizers implemented from scratch to meet a non-standard spec. Deployed on EC2 and AWS Lambda with CI running pytest and a Docker build.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">93/100 in live evaluation</div>
+        <div class="project-tags">
+          <span class="project-tag">spaCy</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">AWS Lambda</span>
+          <span class="project-tag">Docker</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/nlp-pipeline-api" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/nexus.jpg" alt="NEXUS presentation cover" loading="lazy" width="1600" height="800"/>
+        <div class="project-top">
+          <span class="project-status status-archived">Archived</span>
         </div>
         <h3 class="project-name">NEXUS</h3>
-        <p class="project-desc">Personal AI system I run day to day to manage my own machine, not just chat with it: multi-provider LLM routing, dozens of self-discovered skills across home automation and personal finance, and a hybrid local/GCP deployment. Closed-source by design, since it touches my finances and home systems, so the public repo documents the architecture and decisions rather than shipping the implementation.</p>
+        <p class="project-desc">Personal AI system that managed my own Linux workstation from 2025 until I archived it in September 2026: 5-tier multi-provider LLM routing, 38 self-discovered skills across home automation and personal finance, an MCP server exposing its capabilities to other agents, and a hybrid local/GCP deployment with automated cost cut-off. Closed-source by design, since it touched my finances and home systems; the public repo documents the architecture.</p>
         <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Architecture docs public · code private</div>
         <div class="project-tags">
           <span class="project-tag">Python</span>
           <span class="project-tag">MCP</span>
           <span class="project-tag">GCP</span>
-          <span class="project-tag">Deepgram</span>
-          <span class="project-tag">ElevenLabs</span>
           <span class="project-tag">ChromaDB</span>
+          <span class="project-tag">Ollama</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" class="project-link">View architecture docs →</a>
+        <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" rel="noopener" class="project-link">View architecture docs →</a>
       </div>
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">☕</div>
+          <div class="project-icon">RG</div>
           <span class="project-status status-active">Live · Private repo</span>
         </div>
         <h3 class="project-name">ReushiGo</h3>
@@ -780,61 +883,7 @@
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">🏎️</div>
-          <span class="project-status status-active">Active</span>
-        </div>
-        <h3 class="project-name">Victor — AI Race Engineer</h3>
-        <p class="project-desc">Voice-driven race engineer for Assetto Corsa, native on Linux. A C reader running under the same Proton prefix as the game pulls telemetry straight from AC's shared memory; a separate Linux daemon runs the deterministic spotter and alerts, calculates pit strategy, and answers free-form voice questions through a four-provider LLM chain (Groq, Cerebras, NVIDIA NIM, Gemini) behind a circuit breaker, with Piper for speech synthesis.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">143 tests · CI green on Python 3.10 & 3.12</div>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">C</span>
-          <span class="project-tag">Wine/Proton</span>
-          <span class="project-tag">Groq</span>
-          <span class="project-tag">Piper TTS</span>
-          <span class="project-tag">pytest</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/victor-race-engineer" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">🏚️</div>
-          <span class="project-status status-active">Active</span>
-        </div>
-        <h3 class="project-name">Ayuda Terremoto Colombia</h3>
-        <p class="project-desc">Independent humanitarian coordination system, built in response to the real magnitude-7.4 earthquake that struck Chocó, Colombia on August 10, 2026 (a declared national disaster) — not an officially adopted tool of the government or the NGOs running the response. A FastAPI/PostgreSQL national node coordinates with an offline-first React/IndexedDB field node that syncs once connectivity returns, with fuzzy-match deduplication and USGS-triggered activation.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">80+ backend tests · deployed on Render</div>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">FastAPI</span>
-          <span class="project-tag">PostgreSQL</span>
-          <span class="project-tag">React</span>
-          <span class="project-tag">IndexedDB</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/ayuda-terremoto-colombia" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">🗣️</div>
-          <span class="project-status status-done">Done</span>
-        </div>
-        <h3 class="project-name">NLP Pipeline API</h3>
-        <p class="project-desc">Team project for a Natural Language Processing course: a spaCy/FastAPI microservice for POS tagging, lemmatization, NER, and dependency parsing, plus TF-IDF/BoW/one-hot vectorizers implemented from scratch to meet a non-standard spec. Deployed to AWS Lambda with CI running pytest and a Docker build.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">spaCy</span>
-          <span class="project-tag">FastAPI</span>
-          <span class="project-tag">AWS Lambda</span>
-          <span class="project-tag">Docker</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/nlp-pipeline-api" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">🧬</div>
+          <div class="project-icon">DSL</div>
           <span class="project-status status-done">Done</span>
         </div>
         <h3 class="project-name">ML DSL for Machine Learning</h3>
@@ -849,7 +898,7 @@
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">⚡</div>
+          <div class="project-icon">HPC</div>
           <span class="project-status status-done">Done</span>
         </div>
         <h3 class="project-name">High Performance Computing</h3>
@@ -865,7 +914,7 @@
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">📡</div>
+          <div class="project-icon">NET</div>
           <span class="project-status status-done">Done</span>
         </div>
         <h3 class="project-name">Network Traffic Analysis</h3>
@@ -882,7 +931,7 @@
 
       <div class="project-card fade-up">
         <div class="project-top">
-          <div class="project-icon">🔁</div>
+          <div class="project-icon">AND</div>
           <span class="project-status status-done">Done</span>
         </div>
         <h3 class="project-name">Logic Gate Simulator</h3>
@@ -911,7 +960,7 @@
 
       <div class="leadership-card fade-up">
         <div class="leadership-top">
-          <div class="leadership-badge">🥇 1st Place</div>
+          <div class="leadership-badge">1st Place</div>
         </div>
         <h3 class="leadership-name">USABOT Robotics Challenge</h3>
         <p class="leadership-role">3D CAD · Sensor architecture · Commercial pitch</p>
@@ -927,7 +976,7 @@
 
       <div class="leadership-card fade-up">
         <div class="leadership-top">
-          <div class="leadership-badge">🏆 1st Place, Int'l</div>
+          <div class="leadership-badge">1st Place, Int'l</div>
         </div>
         <h3 class="leadership-name">WarmiTics — Wisibilízalas</h3>
         <p class="leadership-role">Technical PM · Lead Frontend/UX · Age 17</p>
@@ -965,11 +1014,11 @@
       </div>
 
       <div class="exp-item">
-        <div class="exp-date">2025 — present</div>
+        <div class="exp-date">2025 — 2026</div>
         <div>
           <h3 class="exp-title">Personal AI System — Independent Project</h3>
-          <p class="exp-org">NEXUS · Self-directed, closed-source</p>
-          <p class="exp-desc">Designed and built a personal AI system that manages my own machine day to day, not just conversation: multi-provider LLM routing, dozens of self-discovered skills covering home automation and personal finance, a hybrid GCP/local deployment with automated cost governance, and an MCP server exposing its capabilities to other AI agents. Closed-source since it touches my finances and home systems; the public repo covers architecture and design decisions.</p>
+          <p class="exp-org">NEXUS · Self-directed, closed-source · archived Sept 2026</p>
+          <p class="exp-desc">Designed and built a personal AI system that managed my own machine day to day, not just conversation: multi-provider LLM routing, dozens of self-discovered skills covering home automation and personal finance, a hybrid GCP/local deployment with automated cost governance, and an MCP server exposing its capabilities to other AI agents. Closed-source since it touched my finances and home systems; the public repo covers architecture and design decisions.</p>
         </div>
       </div>
 
@@ -1021,7 +1070,7 @@
       <div class="exp-item">
         <div class="exp-date">2019</div>
         <div>
-          <h3 class="exp-title">🏆 1st Place — Wisibilízalas International Competition</h3>
+          <h3 class="exp-title">1st Place — Wisibilízalas International Competition</h3>
           <p class="exp-org">Universidad Pompeu Fabra · Barcelona, Spain · Shakespeare School, Ecuador · Senior Category</p>
           <p class="exp-desc">Won first place in an international competition fighting gender stereotypes in technology, organized by Universidad Pompeu Fabra. Represented Shakespeare School (Quito, Ecuador) in the Senior category at age 17, competing against teams from Latin America and Europe. The project consisted of a website highlighting the careers of women in technology and ICT.</p>
           <a href="https://sites.google.com/view/warmitics" target="_blank" class="project-link" style="margin-top:.75rem;">View winning project: WarmiTics →</a>
@@ -1050,8 +1099,8 @@
         Download CV ▾
       </button>
       <div class="cv-menu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border:1.5px solid var(--border);border-radius:8px;min-width:180px;box-shadow:0 8px 24px rgba(15,30,53,.12);z-index:200;">
-        <a href="CV_Julian_Rincon_EN.pdf" target="_blank" style="display:block;padding:.75rem 1.25rem;font-size:.85rem;font-weight:600;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--border);">🇬🇧 English</a>
-        <a href="CV_Julian_Rincon.pdf" target="_blank" style="display:block;padding:.75rem 1.25rem;font-size:.85rem;font-weight:600;color:var(--blue);text-decoration:none;">🇨🇴 Español</a>
+        <a href="CV_Julian_Rincon_EN.pdf" target="_blank" style="display:block;padding:.75rem 1.25rem;font-size:.85rem;font-weight:600;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--border);">English (EN)</a>
+        <a href="CV_Julian_Rincon.pdf" target="_blank" style="display:block;padding:.75rem 1.25rem;font-size:.85rem;font-weight:600;color:var(--blue);text-decoration:none;">Español (ES)</a>
       </div>
     </div>
     <a href="https://www.linkedin.com/in/julian-esteban-rinc%C3%B3n-rodriguez-1a05501b7/" target="_blank" class="contact-link secondary">
@@ -1149,7 +1198,7 @@
       moreToggle.textContent = 'Show fewer projects ▴';
     } else {
       moreProjects.setAttribute('hidden', '');
-      moreToggle.textContent = 'Show 9 more projects (NEXUS, ReushiGo, Victor, Ayuda Terremoto Colombia, NLP API, ML DSL, HPC, network analysis, logic gates) ▾';
+      moreToggle.textContent = 'Show 11 more projects ▾';
     }
     moreToggle.setAttribute('aria-expanded', String(willShow));
   });
@@ -1222,7 +1271,9 @@
       { tag: 'Section', label: 'Leadership & Impact', run: () => go('#leadership') },
       { tag: 'Section', label: 'Experience', run: () => go('#experience') },
       { tag: 'Section', label: 'Contact', run: () => go('#contact') },
-      { tag: 'Project', label: 'SAVI v2 — live demo', run: () => open('https://julian-rincon.github.io/ames-housing-ml/SAVI_v2_ParcialFinal.html') },
+      { tag: 'Project', label: 'SAVI — live agent demo', run: () => open('https://5w442qdw5roag3chtm6esbohfu0mwaap.lambda-url.us-east-1.on.aws/') },
+      { tag: 'Project', label: 'SAVI — GitHub', run: () => open('https://github.com/Julian-Rincon/ames-housing-ml') },
+      { tag: 'Project', label: 'Phantom — GitHub', run: () => open('https://github.com/Julian-Rincon/phantom') },
       { tag: 'Project', label: 'ShopStream — GitHub', run: () => open('https://github.com/Julian-Rincon/shopstream-bigdata') },
       { tag: 'Project', label: 'Chinook — GitHub', run: () => open('https://github.com/Julian-Rincon/chinook-cloud-platform') },
       { tag: 'Action', label: 'Download CV (English)', run: () => open('CV_Julian_Rincon_EN.pdf') },
