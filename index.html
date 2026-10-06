@@ -607,7 +607,7 @@
         I'm a 9th-semester (final term) Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure: AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        On the ML side, I took <strong>SAVI</strong>, a team reinforcement-learning project from our Machine Learning course, and rebuilt it on my own as a cloud-native agent: I audited the original, found its headline R²=0.96 came from padded data, rebuilt the dataset from real public sources, and shipped an event-driven AWS pipeline (S3, Lambda, EC2, SageMaker) with a RAG agent on a public URL, reporting results honestly, including where RL doesn't beat the baseline. On the data side, <strong>ShopStream</strong> pushes 2.5M events through Lambda validation, EMR/PySpark, Glue ETL and a warehouse on RDS. And I build the agent tooling I use every day: <strong>Phantom</strong>, a local workspace where Claude Code, OpenCode and Hermes share one timeline and delegate to each other, built in Rust and TypeScript on a fork of the open-source Codeg.
+        On the ML side, I took <strong>SAVI</strong>, a team reinforcement-learning project from our Machine Learning course, and rebuilt it on my own as a cloud-native agent: I audited the original, found its headline R²=0.96 came from padded data, rebuilt the dataset from real public sources, and shipped an event-driven AWS pipeline (S3, Lambda, EC2, SageMaker) with a RAG agent on a public URL, reporting results honestly, including where RL doesn't beat the baseline. On the data side, <strong>ShopStream</strong> pushes 2.5M events through Lambda validation, EMR/PySpark, Glue ETL and a warehouse on RDS. And I build the agent tooling I use every day: <strong>Phantom</strong>, a local workspace where Claude Code, OpenCode and Hermes share one timeline and delegate to each other, built in Rust and TypeScript on a fork of the open-source Codeg, and <strong>NEXUS</strong>, my personal assistant layered on top of it.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
         Beyond software, I care about showing up on bigger stages than the ones I started on. At 17 I represented my school in Ecuador at an international competition in Barcelona, and years later that same instinct, to compete and build somewhere bigger than my own classroom, is what's pointing me toward an internship now and an MSc in Germany after. More on that (and on USABOT) in <a href="#leadership" style="color:var(--blue);font-weight:600;text-decoration:none;">Leadership &amp; Impact</a> below.
@@ -717,8 +717,8 @@
           <span class="project-status status-active">Active</span>
         </div>
         <h3 class="project-name">Phantom — Multi-Agent Coding Workspace</h3>
-        <p class="project-desc">One local interface for Claude Code, OpenCode and Hermes Agent: a single timeline, one model selector, and delegation between agents via @mentions. Built on my fork of the open-source Codeg workspace (Apache-2.0). I added OpenCode 2.x history import, a model scorecard that ranks models from measured session history and drives delegation and quota failover, a fully local voice mode (Whisper + Kokoro), a Telegram bridge, and a native Wayland overlay built with Tauri, and I keep the fork merged with upstream releases.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Rust + TypeScript · loopback-only · systemd services</div>
+        <p class="project-desc">One local interface for Claude Code, OpenCode and Hermes Agent: a single timeline, one model selector, and delegation between agents via @mentions. Built on my fork of the open-source Codeg workspace (Apache-2.0). I added OpenCode 2.x history import, a model scorecard that ranks models from measured session history and drives delegation and quota failover, a fully local voice layer with a distinct voice per agent (Whisper, Chatterbox and Kokoro), a compact Telegram bridge, and a native Wayland overlay built with Tauri. It is reachable from my phone only over a private Tailscale network, every deploy verifies itself with 12 checks, and I keep the fork merged with upstream releases.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Rust + TypeScript · loopback + Tailscale only · self-verifying deploy</div>
         <div class="project-tags">
           <span class="project-tag">Rust</span>
           <span class="project-tag">TypeScript</span>
@@ -752,10 +752,28 @@
     </div>
 
     <button class="projects-more-toggle fade-up" id="moreProjectsToggle" type="button" aria-expanded="false" aria-controls="moreProjects">
-      Show 11 more projects ▾
+      Show 12 more projects ▾
     </button>
 
     <div class="projects-grid projects-more" id="moreProjects" hidden>
+
+      <div class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/nexus.jpg" alt="NEXUS presentation cover" loading="lazy" width="1600" height="800"/>
+        <div class="project-top">
+          <span class="project-status status-active">Active</span>
+        </div>
+        <h3 class="project-name">NEXUS v2 — Personal AI Assistant</h3>
+        <p class="project-desc">My personal assistant, rebuilt in October 2026 as a small layer on top of Phantom: a guaranteed daily briefing (calendar, inbox headers, tasks, services) to Telegram and the desktop, push-to-talk voice with its own local voice, one memory shared by Claude Code, OpenCode and Hermes over MCP, and a copilot that fixes failing tests in an isolated git worktree and merges only after Claude reviews the diff. v1 (2025 – 2026) was a 47,000-line monolith that was never reliable enough to depend on; v2 keeps the goals in ~1,900 lines with no root access. Source private; the public repo documents it with real screenshots.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">110 tests · no root · cloud watchdog</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">MCP</span>
+          <span class="project-tag">SQLite FTS5</span>
+          <span class="project-tag">systemd</span>
+          <span class="project-tag">Whisper</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" rel="noopener" class="project-link">View project →</a>
+      </div>
 
       <div class="project-card fade-up">
         <img class="project-cover" src="assets/projects/victor.jpg" alt="Victor — AI Race Engineer presentation cover" loading="lazy" width="1600" height="800"/>
@@ -830,6 +848,24 @@
       </div>
 
       <div class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/dino-island.jpg" alt="Dino Island presentation cover" loading="lazy" width="1600" height="800"/>
+        <div class="project-top">
+          <span class="project-status status-done">Finished</span>
+        </div>
+        <h3 class="project-name">Dino Island</h3>
+        <p class="project-desc">Team of five for our NLP course: four chained generative stages. A character-level GRU (chosen over an LSTM by validation loss) invents a dinosaur name, gemma4 through Ollama on a SageMaker notebook writes its identity, aMUSEd generates its image, and a Lambda web app orchestrates everything and lets you chat with the dinosaur.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">GRU val loss 1.564 · 4 model stages</div>
+        <div class="project-tags">
+          <span class="project-tag">PyTorch</span>
+          <span class="project-tag">Ollama</span>
+          <span class="project-tag">SageMaker</span>
+          <span class="project-tag">aMUSEd</span>
+          <span class="project-tag">AWS Lambda</span>
+        </div>
+        <a href="https://github.com/Julian-Rincon/dino-island-lab2" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card fade-up">
         <img class="project-cover" src="assets/projects/nlp-pipeline-api.jpg" alt="NLP Pipeline API presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-done">Finished</span>
@@ -844,24 +880,6 @@
           <span class="project-tag">Docker</span>
         </div>
         <a href="https://github.com/Julian-Rincon/nlp-pipeline-api" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
-      </div>
-
-      <div class="project-card fade-up">
-        <img class="project-cover" src="assets/projects/nexus.jpg" alt="NEXUS presentation cover" loading="lazy" width="1600" height="800"/>
-        <div class="project-top">
-          <span class="project-status status-archived">Archived</span>
-        </div>
-        <h3 class="project-name">NEXUS</h3>
-        <p class="project-desc">Personal AI system that managed my own Linux workstation from 2025 until I archived it in September 2026: 5-tier multi-provider LLM routing, 38 self-discovered skills across home automation and personal finance, an MCP server exposing its capabilities to other agents, and a hybrid local/GCP deployment with automated cost cut-off. Closed-source by design, since it touched my finances and home systems; the public repo documents the architecture.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Architecture docs public · code private</div>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">MCP</span>
-          <span class="project-tag">GCP</span>
-          <span class="project-tag">ChromaDB</span>
-          <span class="project-tag">Ollama</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" rel="noopener" class="project-link">View architecture docs →</a>
       </div>
 
       <div class="project-card fade-up">
@@ -1014,11 +1032,11 @@
       </div>
 
       <div class="exp-item">
-        <div class="exp-date">2025 — 2026</div>
+        <div class="exp-date">2025 — present</div>
         <div>
           <h3 class="exp-title">Personal AI System — Independent Project</h3>
-          <p class="exp-org">NEXUS · Self-directed, closed-source · archived Sept 2026</p>
-          <p class="exp-desc">Designed and built a personal AI system that managed my own machine day to day, not just conversation: multi-provider LLM routing, dozens of self-discovered skills covering home automation and personal finance, a hybrid GCP/local deployment with automated cost governance, and an MCP server exposing its capabilities to other AI agents. Closed-source since it touched my finances and home systems; the public repo covers architecture and design decisions.</p>
+          <p class="exp-org">NEXUS · Self-directed, closed-source · v2 since Oct 2026</p>
+          <p class="exp-desc">Built v1 (2025 – 2026) as a large standalone system: multi-provider LLM routing, dozens of self-discovered skills, a hybrid GCP/local deployment and an MCP server. It was never reliable enough to depend on, so in October 2026 I rebuilt it as v2, a ~1,900-line layer on Phantom with 110 tests: daily briefing, push-to-talk voice, memory shared across agents, a test-fixing copilot with review gates, and a cloud watchdog, all without root access. v2 applies what v1 taught me.</p>
         </div>
       </div>
 
@@ -1198,7 +1216,7 @@
       moreToggle.textContent = 'Show fewer projects ▴';
     } else {
       moreProjects.setAttribute('hidden', '');
-      moreToggle.textContent = 'Show 11 more projects ▾';
+      moreToggle.textContent = 'Show 12 more projects ▾';
     }
     moreToggle.setAttribute('aria-expanded', String(willShow));
   });
