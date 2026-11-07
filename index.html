@@ -493,6 +493,60 @@
       padding: .2rem .55rem; border-radius: 4px;
     }
 
+
+    /* ── HERO LEDGER ── */
+    .hero-eyebrow { text-transform: none; letter-spacing: .02em; font-family: 'DM Sans', sans-serif; font-size: .82rem; }
+    .ledger { padding: 1.75rem 1.75rem 1.25rem; }
+    .ledger-head { display: flex; align-items: baseline; gap: .6rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .ledger-prompt { font-family: 'DM Mono', monospace; color: var(--gold); font-weight: 500; }
+    .ledger-title { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); }
+    .ledger-rows { list-style: none; margin: .5rem 0 0; padding: 0; }
+    .ledger-rows li + li { border-top: 1px dashed var(--border); }
+    .ledger-rows a {
+      display: grid; grid-template-columns: 5.6rem 6.2rem 1fr auto; align-items: baseline; gap: .75rem;
+      padding: .8rem .4rem; text-decoration: none; color: var(--text); border-radius: 8px;
+      transition: background .2s;
+    }
+    .ledger-rows a:hover, .ledger-rows a:focus-visible { background: var(--light); outline: none; }
+    .ledger-rows a:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
+    .ledger-state { font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--gray); display: inline-flex; align-items: center; gap: .4rem; }
+    .ledger-state::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #B8C4D4; flex: none; }
+    .ledger-state.on::before { background: #2E9E5B; }
+    .ledger-state.idle::before { background: var(--gold); }
+    .ledger-name { font-family: 'DM Mono', monospace; font-size: .85rem; font-weight: 500; color: var(--blue); }
+    .ledger-what { font-size: .88rem; color: #4A6080; line-height: 1.4; }
+    .ledger-proof { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--navy); white-space: nowrap; text-align: right; }
+    .ledger-foot { margin-top: .75rem; font-size: .75rem; color: var(--gray); }
+    /* a single load moment: rows come up one by one, like units starting */
+    @media (prefers-reduced-motion: no-preference) {
+      .ledger-rows li { animation: unitUp .45s ease both; }
+      .ledger-rows li:nth-child(2) { animation-delay: .12s; }
+      .ledger-rows li:nth-child(3) { animation-delay: .24s; }
+      .ledger-rows li:nth-child(4) { animation-delay: .36s; }
+      .ledger-rows li:nth-child(5) { animation-delay: .48s; }
+      .ledger-state.on::before { animation: unitOn .45s ease both; animation-delay: inherit; }
+    }
+    @keyframes unitUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    @keyframes unitOn { from { background: #B8C4D4; } to { background: #2E9E5B; } }
+
+    /* ── CASE STUDY ── */
+    .case { margin: .25rem 0 1rem; border-top: 1px solid var(--border); padding-top: .75rem; }
+    .case summary { cursor: pointer; font-weight: 600; font-size: .88rem; color: var(--blue); list-style: none; display: inline-flex; align-items: center; gap: .4rem; }
+    .case summary::-webkit-details-marker { display: none; }
+    .case summary::before { content: '+'; font-family: 'DM Mono', monospace; color: var(--gold); width: 1ch; }
+    .case[open] summary::before { content: '−'; }
+    .case summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    .case dl { margin: .75rem 0 0; display: grid; gap: .6rem; }
+    .case dt { font-family: 'DM Serif Display', serif; color: var(--navy); font-size: 1rem; }
+    .case dd { margin: 0; font-size: .88rem; line-height: 1.6; color: #4A6080; }
+    @media (max-width: 900px) {
+      .hero { min-height: auto; }
+      .hero > * { min-width: 0; }
+      .hero-card.ledger { transform: none; width: 100%; padding: 1.25rem 1rem 1rem; }
+      .ledger-rows a { grid-template-columns: 5.2rem 1fr auto; }
+      .ledger-what { grid-column: 2 / -1; grid-row: 2; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: .9rem 1.25rem; }
@@ -543,8 +597,8 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-text fade-up">
-    <div class="hero-eyebrow">Available for internships</div>
-    <h1>I don't build demos. I build <em>systems that run</em>.</h1>
+    <div class="hero-eyebrow">Open to internships, January – June 2027</div>
+    <h1>I don't build demos. I build systems that run.</h1>
     <p class="hero-sub">
       CS &amp; AI student at Universidad Sergio Arboleda, Bogotá.
       ML Engineer and Data Engineer at heart, shipping data pipelines, ML systems, and cloud infrastructure to production, not just notebooks.
@@ -576,24 +630,19 @@
     </div>
   </div>
 
-  <div class="hero-card fade-up" style="animation-delay:.2s">
-    <div class="card-header">
-      <div class="card-dot red"></div>
-      <div class="card-dot yellow"></div>
-      <div class="card-dot green"></div>
-      <span class="card-filename">profile.py</span>
+  <div class="hero-card ledger" aria-labelledby="ledgerTitle">
+    <div class="ledger-head">
+      <span class="ledger-prompt" aria-hidden="true">$</span>
+      <h2 id="ledgerTitle" class="ledger-title">What I have running</h2>
     </div>
-    <div class="code-block">
-      <span class="code-key">julian</span> <span class="code-punct">= {</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"degree"</span><span class="code-punct">:</span> <span class="code-arr">"CS &amp; AI, final semester (9/9)"</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"focus"</span><span class="code-punct">:</span> <span class="code-arr">["ML Engineering", "Data Engineering", "AI Agents"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"shipped"</span><span class="code-punct">:</span> <span class="code-arr">["SAVI v3", "Phantom", "ShopStream"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"stack"</span><span class="code-punct">:</span> <span class="code-arr">["Python", "AWS", "PyTorch", "Rust"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"leadership"</span><span class="code-punct">:</span> <span class="code-arr">["USABOT (1st place)", "WarmiTics (1st, int'l)"]</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"goal"</span><span class="code-punct">:</span> <span class="code-arr">"ML internship, then an MSc in Germany"</span><span class="code-punct">,</span><br/>
-      &nbsp;&nbsp;<span class="code-str">"open_to"</span><span class="code-punct">:</span> <span class="code-arr">["internships", "research collabs"]</span><br/>
-      <span class="code-punct">}</span>
-    </div>
+    <ol class="ledger-rows">
+      <li><a href="#p-nexus"><span class="ledger-state on">active</span><span class="ledger-name">nexus</span><span class="ledger-what">Personal AI assistant, daily since 2025</span><span class="ledger-proof">1,483 tests</span></a></li>
+      <li><a href="#p-phantom"><span class="ledger-state on">active</span><span class="ledger-name">phantom</span><span class="ledger-what">Multi-agent coding workspace</span><span class="ledger-proof">12-check deploy</span></a></li>
+      <li><a href="#p-victor"><span class="ledger-state on">active</span><span class="ledger-name">victor</span><span class="ledger-what">Voice race engineer for Linux</span><span class="ledger-proof">219 tests</span></a></li>
+      <li><a href="#p-savi"><span class="ledger-state idle">on demand</span><span class="ledger-name">savi</span><span class="ledger-what">Valuation agent on AWS, shuts itself down</span><span class="ledger-proof">R²(log) 0.921</span></a></li>
+      <li><a href="#p-shopstream"><span class="ledger-state done">finished</span><span class="ledger-name">shopstream</span><span class="ledger-what">2.5M-event AWS data pipeline</span><span class="ledger-proof">86% coverage</span></a></li>
+    </ol>
+    <p class="ledger-foot">Figures from each repository, checked November 2026.</p>
   </div>
 </section>
 
@@ -602,7 +651,7 @@
   <div class="about-grid">
     <div class="fade-up">
       <p class="section-label">About me</p>
-      <h2 class="section-title">I don't build demos. I build systems that run.</h2>
+      <h2 class="section-title">Machine learning, data pipelines, and the Linux box they run on.</h2>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
         I'm a 9th-semester (final term) Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure: AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
       </p>
@@ -691,7 +740,7 @@
 
     <div class="projects-flagship">
 
-      <div class="project-card flagship fade-up">
+      <div id="p-savi" class="project-card flagship fade-up">
         <img class="project-cover" src="assets/projects/savi.jpg" alt="SAVI — Autonomous Real-Estate Valuation Agent presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-done">Finished</span>
@@ -699,6 +748,7 @@
         <h3 class="project-name">SAVI — Autonomous Real-Estate Valuation Agent</h3>
         <p class="project-desc">Reinforcement learning decides when a lender can trust an automatic valuation: APPROVE, human REVIEW, or REJECT. v1–v2 were a team project for our Machine Learning course (with Valeria Larea, Nicolás Garzón and Juan Niño). For v3 I worked alone: audited v2, rebuilt the dataset from real public sources, and re-engineered it as an event-driven AWS pipeline (S3 → Lambda → EC2 → SageMaker) with a RAG agent and web app on a public URL. Results are reported honestly, including where RL does not beat the baseline.</p>
         <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">R²(log) 0.921 · MAPE 7.8% · 191 tests · &lt;US$0.05 per run</div>
+        <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>The team model looked great on paper. When I audited it, 93% of the dataset turned out to be assessor records padded with constant columns, so the score said little about real sales.</dd><dt>What I decided</dt><dd>Throw the data out and rebuild it from public sources: 2,930 real sales joined to 18,078 parcels, with FHFA and Zillow indices. Then evaluate once on a held-out test with 95% bootstrap intervals, and report where RL does not beat the baseline.</dd><dt>The result</dt><dd>R²(log) 0.921 and 7.8% MAPE out of fold, an event-driven AWS pipeline that shuts itself down at under US$0.05 per run, and 191 tests in CI.</dd></dl></details>
         <div class="project-tags">
           <span class="project-tag">XGBoost</span>
           <span class="project-tag">Double DQN</span>
@@ -711,14 +761,15 @@
         <a href="https://github.com/Julian-Rincon/ames-housing-ml" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card flagship fade-up">
+      <div id="p-phantom" class="project-card flagship fade-up">
         <img class="project-cover" src="assets/projects/phantom.jpg" alt="Phantom — Multi-Agent Coding Workspace presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-active">Active</span>
         </div>
         <h3 class="project-name">Phantom — Multi-Agent Coding Workspace</h3>
-        <p class="project-desc">One local interface for Claude Code, OpenCode and Hermes Agent: a single timeline, one model selector, and delegation between agents via @mentions. Built on my fork of the open-source Codeg workspace (Apache-2.0). I added OpenCode 2.x history import, a model scorecard that ranks models from measured session history and drives delegation and quota failover, a fully local voice layer with a distinct voice per agent (Whisper, Chatterbox and Kokoro), a compact Telegram bridge with permission buttons, and a delegation router that picks agent, model and effort level by task type and difficulty, learns from ratings and switches to a cheaper profile near the quota limit. It is reachable from my phone only over a private Tailscale network, every deploy verifies itself with 12 checks, and I keep the fork merged with upstream releases.</p>
+        <p class="project-desc">One local interface for Claude Code, OpenCode and Hermes Agent, built on my fork of the open-source Codeg workspace (Apache-2.0): a single timeline, delegation between agents via @mentions, a model scorecard and router that choose agent, model and effort per task, a fully local voice layer, and a Telegram bridge with permission buttons. I keep the fork merged with upstream releases.</p>
         <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Rust + TypeScript · loopback + Tailscale only · self-verifying deploy</div>
+        <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>Three coding agents, three terminals, three histories. I spent more time switching between them than working.</dd><dt>What I decided</dt><dd>Fork an open-source workspace instead of starting from zero, and let measured results choose the model: a scorecard ranks each one by its success rate with a 95% Wilson interval.</dd><dt>The result</dt><dd>One timeline for Claude Code, OpenCode and Hermes, a router that picks agent, model and effort per task, and loopback-only services I reach from my phone over Tailscale. Every deploy checks itself 12 ways.</dd></dl></details>
         <div class="project-tags">
           <span class="project-tag">Rust</span>
           <span class="project-tag">TypeScript</span>
@@ -730,7 +781,7 @@
         <a href="https://github.com/Julian-Rincon/phantom" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card flagship fade-up">
+      <div id="p-shopstream" class="project-card flagship fade-up">
         <img class="project-cover" src="assets/projects/shopstream.jpg" alt="ShopStream Big Data Pipeline presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-done">Finished</span>
@@ -738,6 +789,7 @@
         <h3 class="project-name">ShopStream Big Data Pipeline</h3>
         <p class="project-desc">End-to-end AWS big data pipeline for a fictional e-commerce platform. Generates 2.5M synthetic behavioral events, validates ingestion via S3-triggered Lambda with CloudWatch metrics and quarantine, processes with PySpark on EMR, loads a star schema into RDS PostgreSQL via Glue ETL, and exposes analytics through a Flask API deployed with Zappa.</p>
         <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">2.5M events · 86% test coverage · CI/CD</div>
+        <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>Bad events arriving in a data lake quietly poison every report built on top of them.</dd><dt>What I decided</dt><dd>Validate at the door: an S3-triggered Lambda checks each batch, publishes CloudWatch metrics and quarantines what fails, before EMR ever reads it.</dd><dt>The result</dt><dd>2.5M events through S3, Lambda, EMR/PySpark and Glue into a PostgreSQL star schema, six KPIs with anomaly detection, 86% test coverage and CI/CD.</dd></dl></details>
         <div class="project-tags">
           <span class="project-tag">PySpark</span>
           <span class="project-tag">AWS Lambda</span>
@@ -757,14 +809,14 @@
 
     <div class="projects-grid projects-more" id="moreProjects" hidden>
 
-      <div class="project-card fade-up">
+      <div id="p-nexus" class="project-card fade-up">
         <img class="project-cover" src="assets/projects/nexus.jpg" alt="NEXUS presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-active">Active</span>
         </div>
         <h3 class="project-name">NEXUS v2 — Personal AI Assistant</h3>
-        <p class="project-desc">My personal assistant, rebuilt in October 2026 as a small layer on top of Phantom: a guaranteed daily briefing (calendar, inbox headers, tasks, services) to Telegram and the desktop, an agenda that turns emails into Google Calendar events, a natural-language gym log over Telegram with deterministic load progression, push-to-talk voice with its own local voice, one memory shared by Claude Code, OpenCode and Hermes over MCP, and a copilot that fixes failing tests in an isolated git worktree and merges only after Claude reviews the diff. v1 (2025 – 2026) was a 47,000-line monolith that was never reliable enough to depend on; v2 keeps the goals in ~8,800 lines with 1,000+ tests and no root access. Source private; the public repo documents it with real screenshots.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">1,000+ tests · no root · cloud watchdog</div>
+        <p class="project-desc">My personal assistant, rebuilt in October 2026 as a small layer on top of Phantom: a guaranteed daily briefing (calendar, inbox headers, tasks, services) to Telegram and the desktop, an agenda that turns emails into Google Calendar events, a natural-language gym log over Telegram with deterministic load progression, push-to-talk voice with its own local voice, one memory shared by Claude Code, OpenCode and Hermes over MCP, and a copilot that fixes failing tests in an isolated git worktree and merges only after Claude reviews the diff. v1 (2025 – 2026) was a 47,000-line monolith that was never reliable enough to depend on; v2 keeps the goals in ~8,800 lines with 1,400+ tests and no root access. Source private; the public repo documents it with real screenshots.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">1,400+ tests · no root · cloud watchdog</div>
         <div class="project-tags">
           <span class="project-tag">Python</span>
           <span class="project-tag">MCP</span>
@@ -775,14 +827,14 @@
         <a href="https://github.com/Julian-Rincon/NEXUS-Public" target="_blank" rel="noopener" class="project-link">View project →</a>
       </div>
 
-      <div class="project-card fade-up">
+      <div id="p-victor" class="project-card fade-up">
         <img class="project-cover" src="assets/projects/victor.jpg" alt="Victor — AI Race Engineer presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-active">Active</span>
         </div>
         <h3 class="project-name">Victor — AI Race Engineer</h3>
         <p class="project-desc">Voice-driven race engineer for Assetto Corsa, native on Linux. A C reader running under the same Proton prefix as the game pulls telemetry straight from AC's shared memory; a Linux daemon runs the deterministic spotter and alerts, calculates pit strategy, and answers free-form voice questions through a four-provider LLM chain behind a circuit breaker, with Piper for speech synthesis.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">143 tests · CI green on Python 3.10 &amp; 3.12</div>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">219 tests · CI on Python 3.10 &amp; 3.12</div>
         <div class="project-tags">
           <span class="project-tag">Python</span>
           <span class="project-tag">C</span>
@@ -1036,7 +1088,7 @@
         <div>
           <h3 class="exp-title">Personal AI System — Independent Project</h3>
           <p class="exp-org">NEXUS · Self-directed, closed-source · v2 since Oct 2026</p>
-          <p class="exp-desc">Built v1 (2025 – 2026) as a large standalone system: multi-provider LLM routing, dozens of self-discovered skills, a hybrid GCP/local deployment and an MCP server. It was never reliable enough to depend on, so in October 2026 I rebuilt it as v2, a ~8,800-line layer on Phantom with 1,000+ tests: daily briefing, email-to-calendar agenda, gym log, push-to-talk voice, memory shared across agents, a test-fixing copilot with review gates, and a cloud watchdog, all without root access. v2 applies what v1 taught me.</p>
+          <p class="exp-desc">Built v1 (2025 – 2026) as a large standalone system: multi-provider LLM routing, dozens of self-discovered skills, a hybrid GCP/local deployment and an MCP server. It was never reliable enough to depend on, so in October 2026 I rebuilt it as v2, a ~8,800-line layer on Phantom with 1,400+ tests: daily briefing, email-to-calendar agenda, gym log, push-to-talk voice, memory shared across agents, a test-fixing copilot with review gates, and a cloud watchdog, all without root access. v2 applies what v1 taught me.</p>
         </div>
       </div>
 
