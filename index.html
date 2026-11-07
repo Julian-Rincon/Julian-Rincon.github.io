@@ -503,7 +503,7 @@
     .ledger-rows { list-style: none; margin: .5rem 0 0; padding: 0; }
     .ledger-rows li + li { border-top: 1px dashed var(--border); }
     .ledger-rows a {
-      display: grid; grid-template-columns: 5.6rem 6.2rem 1fr auto; align-items: baseline; gap: .75rem;
+      display: grid; grid-template-columns: 5.6rem 7.4rem 1fr auto; align-items: baseline; gap: .75rem;
       padding: .8rem .4rem; text-decoration: none; color: var(--text); border-radius: 8px;
       transition: background .2s;
     }
@@ -546,6 +546,16 @@
       .ledger-rows a { grid-template-columns: 5.2rem 1fr auto; }
       .ledger-what { grid-column: 2 / -1; grid-row: 2; }
     }
+
+
+    /* ── HOW I MEASURE ── */
+    .measure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 3rem; margin-top: 2rem; max-width: 1100px; }
+    .measure-item { border-left: 2px solid var(--gold); padding-left: 1.25rem; }
+    .measure-item h3 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.25rem; color: var(--navy); margin-bottom: .4rem; }
+    .measure-item p { font-size: .92rem; line-height: 1.7; color: #4A6080; max-width: 60ch; }
+    .ledger-foot a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .ledger-foot a:hover { text-decoration: underline; }
+    @media (max-width: 900px) { .measure-grid { grid-template-columns: 1fr; } }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -600,8 +610,7 @@
     <div class="hero-eyebrow">Open to internships, January – June 2027</div>
     <h1>I don't build demos. I build systems that run.</h1>
     <p class="hero-sub">
-      CS &amp; AI student at Universidad Sergio Arboleda, Bogotá.
-      ML Engineer and Data Engineer at heart, shipping data pipelines, ML systems, and cloud infrastructure to production, not just notebooks.
+      CS &amp; AI student at Universidad Sergio Arboleda, Bogotá. I clean and rebuild data, train models I test once on data they have never seen, and build the pipelines and tools around them.
     </p>
     <div class="live-signal" id="liveSignal">
       <span class="dot"></span> <span id="liveSignalText">checking GitHub activity…</span>
@@ -633,16 +642,16 @@
   <div class="hero-card ledger" aria-labelledby="ledgerTitle">
     <div class="ledger-head">
       <span class="ledger-prompt" aria-hidden="true">$</span>
-      <h2 id="ledgerTitle" class="ledger-title">What I have running</h2>
+      <h2 id="ledgerTitle" class="ledger-title">What I built, and how it measured</h2>
     </div>
     <ol class="ledger-rows">
+      <li><a href="#p-savi"><span class="ledger-state done">finished</span><span class="ledger-name">savi</span><span class="ledger-what">House-price model, out-of-fold</span><span class="ledger-proof">R²(log) 0.921</span></a></li>
+      <li><a href="#p-sentiment"><span class="ledger-state done">finished</span><span class="ledger-name">sentiment140</span><span class="ledger-what">Tweet classifier, single test run</span><span class="ledger-proof">macro-F1 0.824</span></a></li>
+      <li><a href="#p-savi"><span class="ledger-state idle">on demand</span><span class="ledger-name">savi-agent</span><span class="ledger-what">Answers grounded in its tools</span><span class="ledger-proof">10/10 grounded</span></a></li>
+      <li><a href="#p-shopstream"><span class="ledger-state done">finished</span><span class="ledger-name">shopstream</span><span class="ledger-what">AWS data pipeline, validated at ingest</span><span class="ledger-proof">2.5M events</span></a></li>
       <li><a href="#p-nexus"><span class="ledger-state on">active</span><span class="ledger-name">nexus</span><span class="ledger-what">Personal AI assistant, daily since 2025</span><span class="ledger-proof">1,483 tests</span></a></li>
-      <li><a href="#p-phantom"><span class="ledger-state on">active</span><span class="ledger-name">phantom</span><span class="ledger-what">Multi-agent coding workspace</span><span class="ledger-proof">12-check deploy</span></a></li>
-      <li><a href="#p-victor"><span class="ledger-state on">active</span><span class="ledger-name">victor</span><span class="ledger-what">Voice race engineer for Linux</span><span class="ledger-proof">219 tests</span></a></li>
-      <li><a href="#p-savi"><span class="ledger-state idle">on demand</span><span class="ledger-name">savi</span><span class="ledger-what">Valuation agent on AWS, shuts itself down</span><span class="ledger-proof">R²(log) 0.921</span></a></li>
-      <li><a href="#p-shopstream"><span class="ledger-state done">finished</span><span class="ledger-name">shopstream</span><span class="ledger-what">2.5M-event AWS data pipeline</span><span class="ledger-proof">86% coverage</span></a></li>
     </ol>
-    <p class="ledger-foot">Figures from each repository, checked November 2026.</p>
+    <p class="ledger-foot">Figures from each repository, checked November 2026. <a href="#measure">How I measure</a></p>
   </div>
 </section>
 
@@ -653,13 +662,13 @@
       <p class="section-label">About me</p>
       <h2 class="section-title">Machine learning, data pipelines, and the Linux box they run on.</h2>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
-        I'm a 9th-semester (final term) Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, operating at the intersection of machine learning engineering, distributed data systems, and autonomous AI. My work ships to real infrastructure: AWS EMR clusters, Lambda functions, production RDS instances, and a Linux workstation where the abstractions stop.
+        I'm a 9th-semester (final term) Computer Science &amp; Artificial Intelligence student at Universidad Sergio Arboleda, I work on data science and machine learning: getting the data right, choosing a fair baseline, and reporting results I can defend. My projects run on real infrastructure, from AWS EMR, Lambda and RDS to the Linux machine I use every day.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;margin-bottom:1.5rem;">
         On the ML side, I took <strong>SAVI</strong>, a team reinforcement-learning project from our Machine Learning course, and rebuilt it on my own as a cloud-native agent: I audited the original, found its headline R²=0.96 came from padded data, rebuilt the dataset from real public sources, and shipped an event-driven AWS pipeline (S3, Lambda, EC2, SageMaker) with a RAG agent on a public URL, reporting results honestly, including where RL doesn't beat the baseline. On the data side, <strong>ShopStream</strong> pushes 2.5M events through Lambda validation, EMR/PySpark, Glue ETL and a warehouse on RDS. And I build the agent tooling I use every day: <strong>Phantom</strong>, a local workspace where Claude Code, OpenCode and Hermes share one timeline and delegate to each other, built in Rust and TypeScript on a fork of the open-source Codeg, and <strong>NEXUS</strong>, my personal assistant layered on top of it.
       </p>
       <p style="font-size:.95rem;color:#4A6080;line-height:1.75;">
-        Beyond software, I care about showing up on bigger stages than the ones I started on. At 17 I represented my school in Ecuador at an international competition in Barcelona, and years later that same instinct, to compete and build somewhere bigger than my own classroom, is what's pointing me toward an internship now and an MSc in Germany after. More on that (and on USABOT) in <a href="#leadership" style="color:var(--blue);font-weight:600;text-decoration:none;">Leadership &amp; Impact</a> below.
+        Beyond software, I care about showing up on bigger stages than the ones I started on. At 17 I represented my school from Ecuador at an international competition in Barcelona, and years later that same instinct, to compete and build somewhere bigger than my own classroom, is what's pointing me toward an internship now and an MSc in Germany after. More on that (and on USABOT) in <a href="#leadership" style="color:var(--blue);font-weight:600;text-decoration:none;">Leadership &amp; Impact</a> below.
       </p>
       <div class="about-stats">
         <div class="stat-box">
@@ -757,28 +766,26 @@
           <span class="project-tag">SageMaker</span>
           <span class="project-tag">RAG</span>
         </div>
-        <a href="https://5w442qdw5roag3chtm6esbohfu0mwaap.lambda-url.us-east-1.on.aws/" target="_blank" rel="noopener" class="project-link">Live demo →</a>
+        <!-- savi-demo -->
         <a href="https://github.com/Julian-Rincon/ames-housing-ml" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div id="p-phantom" class="project-card flagship fade-up">
-        <img class="project-cover" src="assets/projects/phantom.jpg" alt="Phantom — Multi-Agent Coding Workspace presentation cover" loading="lazy" width="1600" height="800"/>
+      <div id="p-sentiment" class="project-card flagship fade-up">
+        <img class="project-cover" src="assets/projects/sentiment140.jpg" alt="Sentiment140 Lab presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
-          <span class="project-status status-active">Active</span>
+          <span class="project-status status-done">Finished</span>
         </div>
-        <h3 class="project-name">Phantom — Multi-Agent Coding Workspace</h3>
-        <p class="project-desc">One local interface for Claude Code, OpenCode and Hermes Agent, built on my fork of the open-source Codeg workspace (Apache-2.0): a single timeline, delegation between agents via @mentions, a model scorecard and router that choose agent, model and effort per task, a fully local voice layer, and a Telegram bridge with permission buttons. I keep the fork merged with upstream releases.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Rust + TypeScript · loopback + Tailscale only · self-verifying deploy</div>
-        <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>Three coding agents, three terminals, three histories. I spent more time switching between them than working.</dd><dt>What I decided</dt><dd>Fork an open-source workspace instead of starting from zero, and let measured results choose the model: a scorecard ranks each one by its success rate with a 95% Wilson interval.</dd><dt>The result</dt><dd>One timeline for Claude Code, OpenCode and Hermes, a router that picks agent, model and effort per task, and loopback-only services I reach from my phone over Tailscale. Every deploy checks itself 12 ways.</dd></dl></details>
+        <h3 class="project-name">Sentiment140 Lab</h3>
+        <p class="project-desc">Team of five for our NLP course. Preprocessing, representation and classifier compared stage by stage under a fixed, seeded protocol tracked in MLflow; the champion (TF-IDF unigrams+bigrams with logistic regression) was retrained on 1.36M tweets, evaluated once on test, registered in the Model Registry and served by a public FastAPI on EC2. I ran the tracking server, the API and the audit notebook.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">test macro-F1 0.824 · MLflow registry</div>
+        <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>1.6M tweets, five people and many ways to model them. With that many options, it is easy to end up choosing whatever happens to look best on the test set.</dd><dt>What I decided</dt><dd>Freeze seeded partitions first, compare preprocessing, representation and classifier stage by stage against a dummy baseline under cross-validation, log every run in MLflow, and touch the test set exactly once.</dd><dt>The result</dt><dd>TF-IDF unigrams and bigrams with logistic regression won after an ablation study, scored 0.824 macro-F1 on test, and was registered as the champion model and served by a public FastAPI on EC2, with an error analysis.</dd></dl></details>
         <div class="project-tags">
-          <span class="project-tag">Rust</span>
-          <span class="project-tag">TypeScript</span>
-          <span class="project-tag">Tauri</span>
-          <span class="project-tag">MCP</span>
-          <span class="project-tag">Whisper</span>
-          <span class="project-tag">KDE Plasma</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">MLflow</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">AWS EC2</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/phantom" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/sentiment140-lab2" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
       <div id="p-shopstream" class="project-card flagship fade-up">
@@ -804,7 +811,7 @@
     </div>
 
     <button class="projects-more-toggle fade-up" id="moreProjectsToggle" type="button" aria-expanded="false" aria-controls="moreProjects">
-      Show 12 more projects ▾
+      Show 7 more projects ▾
     </button>
 
     <div class="projects-grid projects-more" id="moreProjects" hidden>
@@ -882,40 +889,26 @@
         <a href="https://github.com/Julian-Rincon/chinook-cloud-platform" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card fade-up">
-        <img class="project-cover" src="assets/projects/sentiment140.jpg" alt="Sentiment140 Lab presentation cover" loading="lazy" width="1600" height="800"/>
+      <div id="p-phantom" class="project-card fade-up">
+        <img class="project-cover" src="assets/projects/phantom.jpg" alt="Phantom — Multi-Agent Coding Workspace presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
-          <span class="project-status status-done">Finished</span>
+          <span class="project-status status-active">Active</span>
         </div>
-        <h3 class="project-name">Sentiment140 Lab</h3>
-        <p class="project-desc">Team of five for our NLP course. Preprocessing, representation and classifier compared stage by stage under a fixed, seeded protocol tracked in MLflow; the champion (TF-IDF unigrams+bigrams with logistic regression) was retrained on 1.36M tweets, evaluated once on test, registered in the Model Registry and served by a public FastAPI on EC2. I ran the tracking server, the API and the audit notebook.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">test macro-F1 0.824 · MLflow registry</div>
+        <h3 class="project-name">Phantom — Multi-Agent Coding Workspace</h3>
+        <p class="project-desc">One local interface for Claude Code, OpenCode and Hermes Agent, built on my fork of the open-source Codeg workspace (Apache-2.0): a single timeline, delegation between agents via @mentions, a model scorecard and router that choose agent, model and effort per task, a fully local voice layer, and a Telegram bridge with permission buttons. I keep the fork merged with upstream releases.</p>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">Rust + TypeScript · loopback + Tailscale only · self-verifying deploy</div>
         <div class="project-tags">
-          <span class="project-tag">scikit-learn</span>
-          <span class="project-tag">MLflow</span>
-          <span class="project-tag">FastAPI</span>
-          <span class="project-tag">AWS EC2</span>
+          <span class="project-tag">Rust</span>
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag">Tauri</span>
+          <span class="project-tag">MCP</span>
+          <span class="project-tag">Whisper</span>
+          <span class="project-tag">KDE Plasma</span>
         </div>
-        <a href="https://github.com/Julian-Rincon/sentiment140-lab2" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+        <a href="https://github.com/Julian-Rincon/phantom" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card fade-up">
-        <img class="project-cover" src="assets/projects/dino-island.jpg" alt="Dino Island presentation cover" loading="lazy" width="1600" height="800"/>
-        <div class="project-top">
-          <span class="project-status status-done">Finished</span>
-        </div>
-        <h3 class="project-name">Dino Island</h3>
-        <p class="project-desc">Team of five for our NLP course: four chained generative stages. A character-level GRU (chosen over an LSTM by validation loss) invents a dinosaur name, gemma4 through Ollama on a SageMaker notebook writes its identity, aMUSEd generates its image, and a Lambda web app orchestrates everything and lets you chat with the dinosaur.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">GRU val loss 1.564 · 4 model stages</div>
-        <div class="project-tags">
-          <span class="project-tag">PyTorch</span>
-          <span class="project-tag">Ollama</span>
-          <span class="project-tag">SageMaker</span>
-          <span class="project-tag">aMUSEd</span>
-          <span class="project-tag">AWS Lambda</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/dino-island-lab2" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
-      </div>
+      
 
       <div class="project-card fade-up">
         <img class="project-cover" src="assets/projects/nlp-pipeline-api.jpg" alt="NLP Pipeline API presentation cover" loading="lazy" width="1600" height="800"/>
@@ -951,75 +944,42 @@
         <a href="https://reushi-go.vercel.app" target="_blank" class="project-link">View live app →</a>
       </div>
 
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">DSL</div>
-          <span class="project-status status-done">Done</span>
-        </div>
-        <h3 class="project-name">ML DSL for Machine Learning</h3>
-        <p class="project-desc">Custom domain-specific language built with ANTLR4: a grammar, generated parser, and a Visitor-pattern interpreter that trains and evaluates a K-Means model through a purpose-built syntax instead of raw Python.</p>
-        <div class="project-tags">
-          <span class="project-tag">ANTLR4</span>
-          <span class="project-tag">Python</span>
-          <span class="project-tag">scikit-learn</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/Proyecto-Final-L" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
+      
 
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">HPC</div>
-          <span class="project-status status-done">Done</span>
-        </div>
-        <h3 class="project-name">High Performance Computing</h3>
-        <p class="project-desc">Four HPC workshops: TSP brute force (sequential vs parallel), Sobel edge detection, video grayscale processing, and distributed TSP with Docker Swarm. Each with benchmark comparisons.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">Docker Swarm</span>
-          <span class="project-tag">multiprocessing</span>
-          <span class="project-tag">Flask</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/HPC" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
+      
 
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">NET</div>
-          <span class="project-status status-done">Done</span>
-        </div>
-        <h3 class="project-name">Network Traffic Analysis</h3>
-        <p class="project-desc">Captured 1.5h of real network traffic via PowerShell, then analyzed packet size distributions, inter-arrival times, and disk file sizes in Python. Confirmed heavy-tail behavior across 384K files.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">384,820 files analyzed · peaks at 125 MB/s</div>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">PowerShell</span>
-          <span class="project-tag">Pandas</span>
-          <span class="project-tag">Matplotlib</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/Analisis-de-Trafico-de-Red-con-PowerShell-y-Python" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
+      
 
-      <div class="project-card fade-up">
-        <div class="project-top">
-          <div class="project-icon">AND</div>
-          <span class="project-status status-done">Done</span>
-        </div>
-        <h3 class="project-name">Logic Gate Simulator</h3>
-        <p class="project-desc">Origami-inspired Boolean circuit simulator implementing AND, OR, NOT, NAND gates with topological propagation, cycle detection, Half-Adder and Full-Adder construction, and NetworkX visualization. Built with Paula Caballero.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">NetworkX</span>
-          <span class="project-tag">unittest</span>
-          <span class="project-tag">Matplotlib</span>
-        </div>
-        <a href="https://github.com/Julian-Rincon/Computador-Origami" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
+      
 
     </div>
   </div>
 </section>
 
 <!-- LEADERSHIP -->
+<section id="measure">
+  <p class="section-label fade-up">How I measure</p>
+  <h2 class="section-title fade-up">A number only counts if I can show where it came from.</h2>
+  <div class="measure-grid fade-up">
+    <div class="measure-item">
+      <h3>Compare against something</h3>
+      <p>SAVI's XGBoost model (R²(log) 0.921, MAPE 7.8%) is reported next to LightGBM (0.912, 8.3%) on the same folds. Sentiment140 started from a dummy baseline before any real model.</p>
+    </div>
+    <div class="measure-item">
+      <h3>Touch the test set once</h3>
+      <p>Models are chosen on validation and evaluated once on held-out data, with 95% bootstrap intervals. When SAVI's RL policies did not beat Value Iteration on 378 test sales, that is what the README says.</p>
+    </div>
+    <div class="measure-item">
+      <h3>Check the agent, not just the model</h3>
+      <p>SAVI's chat agent is scored on 10 fixed questions: right tool, every dollar figure traceable to a tool output, and an answer given. It went from 9/10 to 10/10; a free LLM mode scored 8/10 and stays off.</p>
+    </div>
+    <div class="measure-item">
+      <h3>Keep it running</h3>
+      <p>Tests and CI on every project that ships: 1,483 tests in NEXUS, 219 in Victor, 191 in SAVI, 86% coverage in ShopStream.</p>
+    </div>
+  </div>
+</section>
+
 <section id="leadership">
   <div style="max-width:1100px;margin:0 auto;">
     <p class="section-label fade-up">Leadership &amp; Impact</p>
@@ -1050,8 +1010,8 @@
         </div>
         <h3 class="leadership-name">WarmiTics — Wisibilízalas</h3>
         <p class="leadership-role">Technical PM · Lead Frontend/UX · Age 17</p>
-        <p class="leadership-quote">I interviewed women leaders in tech to build the content, then had to represent my school against teams from two continents.</p>
-        <p class="leadership-desc">Served as Technical Product Manager and Lead Frontend/UX Developer for WarmiTics, a web platform highlighting women leaders in STEM. I architected and built the full application, owned all frontend and UX decisions, managed cross-functional logistics, and conducted structured interviews with women leaders in technology to gather primary content. Won 1st place at Wisibilízalas (Universidad Pompeu Fabra, Barcelona) in the Senior category at age 17, representing my school against teams from across Latin America and Europe.</p>
+        <p class="leadership-quote">I interviewed women leaders in tech to build the content, then represented my school from Ecuador against teams from two continents.</p>
+        <p class="leadership-desc">Served as Technical Product Manager and Lead Frontend/UX Developer for WarmiTics, a web platform highlighting women leaders in STEM. I architected and built the full application, owned all frontend and UX decisions, managed cross-functional logistics, and conducted structured interviews with women leaders in technology to gather primary content. Won 1st place at Wisibilízalas (Universidad Pompeu Fabra, Barcelona) in the Senior category at age 17, representing my school from Ecuador against teams from across Latin America and Europe.</p>
         <div class="leadership-tags">
           <span>Technical PM</span>
           <span>Frontend/UX</span>
@@ -1079,7 +1039,7 @@
           <h3 class="exp-title">B.Sc. Computer Science & Artificial Intelligence</h3>
           <p class="exp-org">Universidad Sergio Arboleda — Bogotá, Colombia</p>
           <p class="exp-desc">9th semester of 9. Previous coursework includes Big Data & Data Engineering, Machine Learning, Simulation & Modeling, Neural Networks (Classification), High Performance Computing, Databases, Compilers, Distributed Networks, and Operating Systems.</p>
-          <p class="exp-desc" style="margin-top:.5rem;"><strong>GPA: 4.04/5.0</strong> (Colombian scale) · German equivalent ≈2.4 (Modified Bavarian Formula) · Upward trend: last 3 semesters avg. 4.5+/5.0.</p>
+          <p class="exp-desc" style="margin-top:.5rem;"><strong>GPA: 4.04/5.0</strong> (Colombian scale) · Upward trend: last 3 semesters avg. 4.5+/5.0.</p>
         </div>
       </div>
 
@@ -1268,7 +1228,7 @@
       moreToggle.textContent = 'Show fewer projects ▴';
     } else {
       moreProjects.setAttribute('hidden', '');
-      moreToggle.textContent = 'Show 12 more projects ▾';
+      moreToggle.textContent = 'Show 7 more projects ▾';
     }
     moreToggle.setAttribute('aria-expanded', String(willShow));
   });
@@ -1341,7 +1301,7 @@
       { tag: 'Section', label: 'Leadership & Impact', run: () => go('#leadership') },
       { tag: 'Section', label: 'Experience', run: () => go('#experience') },
       { tag: 'Section', label: 'Contact', run: () => go('#contact') },
-      { tag: 'Project', label: 'SAVI — live agent demo', run: () => open('https://5w442qdw5roag3chtm6esbohfu0mwaap.lambda-url.us-east-1.on.aws/') },
+      { tag: 'Project', label: 'SAVI — code and evaluation', run: () => open('https://github.com/Julian-Rincon/ames-housing-ml') },
       { tag: 'Project', label: 'SAVI — GitHub', run: () => open('https://github.com/Julian-Rincon/ames-housing-ml') },
       { tag: 'Project', label: 'Phantom — GitHub', run: () => open('https://github.com/Julian-Rincon/phantom') },
       { tag: 'Project', label: 'ShopStream — GitHub', run: () => open('https://github.com/Julian-Rincon/shopstream-bigdata') },
