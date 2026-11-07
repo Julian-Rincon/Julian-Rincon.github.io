@@ -223,7 +223,7 @@
     /* [hidden] and .projects-grid{display:grid} tie on specificity, and author CSS
        beats the UA stylesheet — without this, "hidden" more-projects stayed visible. */
     .projects-grid[hidden] { display: none; }
-    .project-card {
+    .project-card { scroll-margin-top: 84px;
       background: #fff; border: 1px solid var(--border);
       border-radius: 16px; padding: 1.75rem;
       transition: transform .2s, box-shadow .2s;
@@ -866,7 +866,7 @@
         <a href="https://github.com/Julian-Rincon/victor-race-engineer" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card fade-up">
+      <div id="p-ayuda" class="project-card fade-up">
         <img class="project-cover" src="assets/projects/ayuda-terremoto.jpg" alt="Ayuda Terremoto Colombia presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-active">Active</span>
@@ -884,7 +884,7 @@
         <a href="https://github.com/Julian-Rincon/ayuda-terremoto-colombia" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card fade-up">
+      <div id="p-chinook" class="project-card fade-up">
         <img class="project-cover" src="assets/projects/chinook.jpg" alt="Chinook Cloud Data Platform presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-done">Finished</span>
@@ -923,7 +923,7 @@
 
       
 
-      <div class="project-card fade-up">
+      <div id="p-nlp" class="project-card fade-up">
         <img class="project-cover" src="assets/projects/nlp-pipeline-api.jpg" alt="NLP Pipeline API presentation cover" loading="lazy" width="1600" height="800"/>
         <div class="project-top">
           <span class="project-status status-done">Finished</span>
