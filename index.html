@@ -768,8 +768,8 @@
         </div>
         <h3 class="project-name">SAVI — Autonomous Real-Estate Valuation Agent</h3>
         <p class="project-desc">Reinforcement learning decides when a lender can trust an automatic valuation: APPROVE, human REVIEW, or REJECT. v1–v2 were a team project for our Machine Learning course (with Valeria Larea, Nicolás Garzón and Juan Niño). For v3 I worked alone: audited v2, rebuilt the dataset from real public sources, and re-engineered it as an event-driven AWS pipeline (S3 → Lambda → EC2 → SageMaker) with a RAG agent and web app on a public URL. Results are reported honestly, including where RL does not beat the baseline.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">R²(log) 0.921 · MAPE 7.8% · 191 tests · &lt;US$0.05 per run</div>
-        <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>The team model looked great on paper. When I audited it, 93% of the dataset turned out to be assessor records padded with constant columns, so the score said little about real sales.</dd><dt>What I decided</dt><dd>Throw the data out and rebuild it from public sources: 2,930 real sales joined to 18,078 parcels, with FHFA and Zillow indices. Then evaluate once on a held-out test with 95% bootstrap intervals, and report where RL does not beat the baseline.</dd><dt>The result</dt><dd>R²(log) 0.921 and 7.8% MAPE out of fold, an event-driven AWS pipeline that shuts itself down at under US$0.05 per run, and 191 tests in CI.</dd></dl></details>
+        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">R²(log) 0.921 · MAPE 7.8% · 197 tests · &lt;US$0.05 per run</div>
+        <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>The team model looked great on paper. When I audited it, 93% of the dataset turned out to be assessor records padded with constant columns, so the score said little about real sales.</dd><dt>What I decided</dt><dd>Throw the data out and rebuild it from public sources: 2,930 real sales joined to 18,078 parcels, with FHFA and Zillow indices. Then evaluate once on a held-out test with 95% bootstrap intervals, and report where RL does not beat the baseline.</dd><dt>The result</dt><dd>R²(log) 0.921 and 7.8% MAPE out of fold, an event-driven AWS pipeline that shuts itself down at under US$0.05 per run, and 197 tests in CI.</dd></dl></details>
         <div class="project-tags">
           <span class="project-tag">XGBoost</span>
           <span class="project-tag">Double DQN</span>
@@ -835,7 +835,7 @@
           <span class="project-status status-active">Active</span>
         </div>
         <h3 class="project-name">NEXUS v2 — Personal AI Assistant</h3>
-        <p class="project-desc">My personal assistant, rebuilt in October 2026 as a small layer on top of Phantom: a guaranteed daily briefing (calendar, inbox headers, tasks, services) to Telegram and the desktop, an agenda that turns emails into Google Calendar events, a natural-language gym log over Telegram with deterministic load progression, push-to-talk voice with its own local voice, one memory shared by Claude Code, OpenCode and Hermes over MCP, and a copilot that fixes failing tests in an isolated git worktree and merges only after Claude reviews the diff. v1 (2025 – 2026) was a 47,000-line monolith that was never reliable enough to depend on; v2 keeps the goals in ~8,800 lines with 1,400+ tests and no root access. Source private; the public repo documents it with real screenshots.</p>
+        <p class="project-desc">My personal assistant, rebuilt in October 2026 as a small layer on top of Phantom: a guaranteed daily briefing (calendar, inbox headers, tasks, services) to Telegram and the desktop, an agenda that turns emails into Google Calendar events, a natural-language gym log over Telegram with deterministic load progression, push-to-talk voice with its own local voice, one memory shared by Claude Code, OpenCode and Hermes over MCP, and a copilot that fixes failing tests in an isolated git worktree and merges only after Claude reviews the diff. v1 (2025 – 2026) was a 47,000-line monolith that was never reliable enough to depend on; v2 keeps the goals in ~12,000 lines with 1,400+ tests and no root access. Source private; the public repo documents it with real screenshots.</p>
         <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">1,400+ tests · no root · cloud watchdog</div>
         <div class="project-tags">
           <span class="project-tag">Python</span>
@@ -988,7 +988,7 @@
     </div>
     <div class="measure-item">
       <h3>Keep it running</h3>
-      <p>Tests and CI on every project that ships: 1,483 tests in NEXUS, 219 in Victor, 191 in SAVI, 86% coverage in ShopStream.</p>
+      <p>Tests and CI on every project that ships: 1,483 tests in NEXUS, 219 in Victor, 197 in SAVI, 86% coverage in ShopStream.</p>
     </div>
   </div>
 </section>
@@ -1061,7 +1061,7 @@
         <div>
           <h3 class="exp-title">Personal AI System — Independent Project</h3>
           <p class="exp-org">NEXUS · Self-directed, closed-source · v2 since Oct 2026</p>
-          <p class="exp-desc">Built v1 (2025 – 2026) as a large standalone system: multi-provider LLM routing, dozens of self-discovered skills, a hybrid GCP/local deployment and an MCP server. It was never reliable enough to depend on, so in October 2026 I rebuilt it as v2, a ~8,800-line layer on Phantom with 1,400+ tests: daily briefing, email-to-calendar agenda, gym log, push-to-talk voice, memory shared across agents, a test-fixing copilot with review gates, and a cloud watchdog, all without root access. v2 applies what v1 taught me.</p>
+          <p class="exp-desc">Built v1 (2025 – 2026) as a large standalone system: multi-provider LLM routing, dozens of self-discovered skills, a hybrid GCP/local deployment and an MCP server. It was never reliable enough to depend on, so in October 2026 I rebuilt it as v2, a ~12,000-line layer on Phantom with 1,400+ tests: daily briefing, email-to-calendar agenda, gym log, push-to-talk voice, memory shared across agents, a test-fixing copilot with review gates, and a cloud watchdog, all without root access. v2 applies what v1 taught me.</p>
         </div>
       </div>
 
