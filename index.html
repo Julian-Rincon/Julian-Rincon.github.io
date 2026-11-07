@@ -548,6 +548,7 @@
     }
 
 
+    .demo-note { font-size: .78rem; color: var(--gray); margin-left: .5rem; }
     /* ── HOW I MEASURE ── */
     .measure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 3rem; margin-top: 2rem; max-width: 1100px; }
     .measure-item { border-left: 2px solid var(--gold); padding-left: 1.25rem; }
@@ -647,7 +648,7 @@
     <ol class="ledger-rows">
       <li><a href="#p-savi"><span class="ledger-state done">finished</span><span class="ledger-name">savi</span><span class="ledger-what">House-price model, out-of-fold</span><span class="ledger-proof">R²(log) 0.921</span></a></li>
       <li><a href="#p-sentiment"><span class="ledger-state done">finished</span><span class="ledger-name">sentiment140</span><span class="ledger-what">Tweet classifier, single test run</span><span class="ledger-proof">macro-F1 0.824</span></a></li>
-      <li><a href="#p-savi"><span class="ledger-state idle">on demand</span><span class="ledger-name">savi-agent</span><span class="ledger-what">Answers grounded in its tools</span><span class="ledger-proof">10/10 grounded</span></a></li>
+      <li><a href="#p-savi"><span class="ledger-state on">live</span><span class="ledger-name">savi-agent</span><span class="ledger-what">Answers grounded in its tools</span><span class="ledger-proof">10/10 grounded</span></a></li>
       <li><a href="#p-shopstream"><span class="ledger-state done">finished</span><span class="ledger-name">shopstream</span><span class="ledger-what">AWS data pipeline, validated at ingest</span><span class="ledger-proof">2.5M events</span></a></li>
       <li><a href="#p-nexus"><span class="ledger-state on">active</span><span class="ledger-name">nexus</span><span class="ledger-what">Personal AI assistant, daily since 2025</span><span class="ledger-proof">1,483 tests</span></a></li>
     </ol>
@@ -697,6 +698,7 @@
           <span class="skill-tag">Python</span>
           <span class="skill-tag">Bash</span>
           <span class="skill-tag">SQL</span>
+          <span class="skill-tag">TypeScript</span>
           <span class="skill-tag">JavaScript</span>
         </div>
       </div>
@@ -708,6 +710,8 @@
           <span class="skill-tag">scikit-learn</span>
           <span class="skill-tag">XGBoost</span>
           <span class="skill-tag">LightGBM</span>
+          <span class="skill-tag">MLflow</span>
+          <span class="skill-tag">spaCy</span>
           <span class="skill-tag">Whisper</span>
           <span class="skill-tag">Ollama</span>
           <span class="skill-tag">Pandas</span>
@@ -721,6 +725,11 @@
           <span class="skill-tag">AWS RDS</span>
           <span class="skill-tag">AWS S3</span>
           <span class="skill-tag">AWS Athena</span>
+          <span class="skill-tag">AWS Lambda</span>
+          <span class="skill-tag">AWS EMR &amp; Glue</span>
+          <span class="skill-tag">PySpark</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">GCP</span>
           <span class="skill-tag">Docker</span>
           <span class="skill-tag">Git</span>
         </div>
@@ -732,6 +741,9 @@
           <span class="skill-tag">React</span>
           <span class="skill-tag">Playwright</span>
           <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">pytest</span>
+          <span class="skill-tag">GitHub Actions</span>
           <span class="skill-tag">Jupyter</span>
           <span class="skill-tag">ANTLR4</span>
         </div>
@@ -767,6 +779,7 @@
           <span class="project-tag">RAG</span>
         </div>
         <a href="https://julianrincon-savi-agent.static.hf.space/" target="_blank" rel="noopener" class="project-link">Live demo →</a>
+        <span class="demo-note">Runs in your browser. The first load takes about 10 s.</span>
         <a href="https://github.com/Julian-Rincon/ames-housing-ml" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
