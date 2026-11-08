@@ -249,6 +249,9 @@
       object-fit: cover; margin: -1.75rem -1.75rem 1.25rem;
       border-radius: 16px 16px 0 0; border-bottom: 1px solid var(--border);
     }
+    video.project-cover {
+      aspect-ratio: 16 / 9; object-fit: contain; background: #0a0c10;
+    }
     .project-status {
       font-family: 'DM Mono', monospace; font-size: .65rem; font-weight: 500;
       padding: .25rem .65rem; border-radius: 100px;
@@ -762,7 +765,7 @@
     <div class="projects-flagship">
 
       <div id="p-savi" class="project-card flagship fade-up">
-        <img class="project-cover" src="assets/projects/savi.jpg" alt="SAVI — Autonomous Real-Estate Valuation Agent presentation cover" loading="lazy" width="1600" height="800"/>
+        <video class="project-cover" controls preload="metadata" playsinline poster="assets/videos/savi.jpg" aria-label="SAVI: project video with subtitles" width="1280" height="720"><source src="assets/videos/savi.mp4" type="video/mp4"/></video>
         <div class="project-top">
           <span class="project-status status-done">Finished</span>
         </div>
@@ -784,7 +787,7 @@
       </div>
 
       <div id="p-sentiment" class="project-card flagship fade-up">
-        <img class="project-cover" src="assets/projects/sentiment140.jpg" alt="Sentiment140 Lab presentation cover" loading="lazy" width="1600" height="800"/>
+        <video class="project-cover" controls preload="metadata" playsinline poster="assets/videos/sentiment140.jpg" aria-label="Sentiment140 Lab: project video with subtitles" width="1280" height="720"><source src="assets/videos/sentiment140.mp4" type="video/mp4"/></video>
         <div class="project-top">
           <span class="project-status status-done">Finished</span>
         </div>
@@ -802,7 +805,7 @@
       </div>
 
       <div id="p-shopstream" class="project-card flagship fade-up">
-        <img class="project-cover" src="assets/projects/shopstream.jpg" alt="ShopStream Big Data Pipeline presentation cover" loading="lazy" width="1600" height="800"/>
+        <video class="project-cover" controls preload="metadata" playsinline poster="assets/videos/shopstream.jpg" aria-label="ShopStream: project video with subtitles" width="1280" height="720"><source src="assets/videos/shopstream.mp4" type="video/mp4"/></video>
         <div class="project-top">
           <span class="project-status status-done">Finished</span>
         </div>
@@ -830,7 +833,7 @@
     <div class="projects-grid projects-more" id="moreProjects" hidden>
 
       <div id="p-nexus" class="project-card fade-up">
-        <img class="project-cover" src="assets/projects/nexus.jpg" alt="NEXUS presentation cover" loading="lazy" width="1600" height="800"/>
+        <video class="project-cover" controls preload="metadata" playsinline poster="assets/videos/nexus.jpg" aria-label="NEXUS: project video with subtitles" width="1280" height="720"><source src="assets/videos/nexus.mp4" type="video/mp4"/></video>
         <div class="project-top">
           <span class="project-status status-active">Active</span>
         </div>
@@ -848,7 +851,7 @@
       </div>
 
       <div id="p-victor" class="project-card fade-up">
-        <img class="project-cover" src="assets/projects/victor.jpg" alt="Victor — AI Race Engineer presentation cover" loading="lazy" width="1600" height="800"/>
+        <video class="project-cover" controls preload="metadata" playsinline poster="assets/videos/victor.jpg" aria-label="Victor: project video with subtitles" width="1280" height="720"><source src="assets/videos/victor.mp4" type="video/mp4"/></video>
         <div class="project-top">
           <span class="project-status status-active">Active</span>
         </div>
