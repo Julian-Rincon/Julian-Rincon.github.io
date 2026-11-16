@@ -814,45 +814,42 @@
         <p class="project-desc">Reinforcement learning decides when a lender can trust an automatic valuation: APPROVE, human REVIEW, or REJECT. v1–v2 were a team project for our Machine Learning course (with Valeria Larea, Nicolás Garzón and Juan Niño). For v3 I worked alone: audited v2, rebuilt the dataset from real public sources, and re-engineered it as an event-driven AWS pipeline (S3 → Lambda → EC2 → SageMaker) with a RAG agent and web app on a public URL. Results are reported honestly, including where RL does not beat the baseline.</p>
         <div class="results" role="group" aria-labelledby="saviResultsTitle">
           <div class="results-head">
-            <span class="results-title" id="saviResultsTitle">Results · SAVI v2 · team</span>
-            <span class="results-note">20,203 properties · 81 features</span>
+            <span class="results-title" id="saviResultsTitle">Results · SAVI v3 · real sales</span>
+            <span class="results-note">2,930 sales · 5-fold out-of-fold</span>
           </div>
           <div class="results-grid">
-            <div class="result"><span class="result-value">0.9609</span><span class="result-name">Test R² (log) · XGBoost</span></div>
-            <div class="result"><span class="result-value">$26,752</span><span class="result-name">MAE on test</span></div>
-            <div class="result"><span class="result-value">$41,890</span><span class="result-name">RMSE on test</span></div>
-            <div class="result"><span class="result-value">0.9589</span><span class="result-name">Test R² (log) · LightGBM</span></div>
+            <div class="result"><span class="result-value">0.921</span><span class="result-name">R² (log) · XGBoost</span></div>
+            <div class="result"><span class="result-value">7.8%</span><span class="result-name">MAPE · XGBoost</span></div>
+            <div class="result"><span class="result-value">197</span><span class="result-name">tests in CI</span></div>
+            <div class="result"><span class="result-value">&lt;$0.05</span><span class="result-name">AWS cost per run</span></div>
           </div>
-          <p class="results-chart-title">Test R² (log) by model</p>
+          <p class="results-chart-title">MAPE by model (lower is better)</p>
           <figure class="results-figure">
-            <svg viewBox="0 0 300 112" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="saviChartTitle saviChartDesc">
-              <title id="saviChartTitle">SAVI v2 test R-squared by model</title>
-              <desc id="saviChartDesc">XGBoost 0.9609 and LightGBM 0.9589, well above the 0.75 of the earlier LightGBM C2 checkpoint.</desc>
+            <svg viewBox="0 0 300 84" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="saviChartTitle saviChartDesc">
+              <title id="saviChartTitle">SAVI v3 out-of-fold MAPE by model</title>
+              <desc id="saviChartDesc">XGBoost 7.8% MAPE against LightGBM 8.3% on the same five folds.</desc>
               <g font-family="DM Sans, sans-serif" font-size="11.5" fill="#1A2A3F">
                 <text x="0" y="18">XGBoost</text>
                 <text x="0" y="46">LightGBM</text>
-                <text x="0" y="74">LightGBM C2</text>
               </g>
               <g>
-                <rect x="102" y="6" width="151.8" height="16" rx="2.5" fill="#3B9EE8"/>
-                <rect x="102" y="34" width="151.5" height="16" rx="2.5" fill="#2C6FAC"/>
-                <rect x="102" y="62" width="118.5" height="16" rx="2.5" fill="#AFC2D8"/>
+                <rect x="102" y="6" width="123.2" height="16" rx="2.5" fill="#3B9EE8"/>
+                <rect x="102" y="34" width="131.1" height="16" rx="2.5" fill="#AFC2D8"/>
               </g>
               <g font-family="DM Mono, monospace" font-size="10.5" fill="#0F1E35">
-                <text x="259" y="18">0.9609</text>
-                <text x="258.5" y="46">0.9589</text>
-                <text x="225.5" y="74">0.75</text>
+                <text x="231" y="18">7.8%</text>
+                <text x="239" y="46">8.3%</text>
               </g>
-              <line x1="102" y1="86" x2="260" y2="86" stroke="#D5E2F0" stroke-width="1"/>
+              <line x1="102" y1="58" x2="260" y2="58" stroke="#D5E2F0" stroke-width="1"/>
               <g font-family="DM Mono, monospace" font-size="9.5" fill="#5A6B85">
-                <text x="102" y="99" text-anchor="middle">0</text>
-                <text x="181" y="99" text-anchor="middle">0.5</text>
-                <text x="260" y="99" text-anchor="middle">1.0</text>
+                <text x="102" y="71" text-anchor="middle">0%</text>
+                <text x="181" y="71" text-anchor="middle">5%</text>
+                <text x="260" y="71" text-anchor="middle">10%</text>
               </g>
             </svg>
-            <figcaption>Test split from the v2 team report; axis starts at 0. C2 is the previous course checkpoint.</figcaption>
+            <figcaption>Same five folds for both models; axis starts at 0.</figcaption>
           </figure>
-          <p class="results-foot">Team: Julian Rincón, Valeria Larea, Nicolás Garzón and Juan Niño. Source: SAVI_v2_ParcialFinal.html. A v3 audit found 93% of v2 rows were assessor records, so v3 was rebuilt on real sales (R²(log) 0.921).</p>
+          <p class="results-foot">v3 is my solo rebuild after auditing the team's v2, whose 0.96 R² came from a dataset that was 93% assessor records. v1–v2 team: Julian Rincón, Valeria Larea, Nicolás Garzón and Juan Niño.</p>
         </div>
         <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>The team model looked great on paper. When I audited it, 93% of the dataset turned out to be assessor records padded with constant columns, so the score said little about real sales.</dd><dt>What I decided</dt><dd>Throw the data out and rebuild it from public sources: 2,930 real sales joined to 18,078 parcels, with FHFA and Zillow indices. Then evaluate once on a held-out test with 95% bootstrap intervals, and report where RL does not beat the baseline.</dd><dt>The result</dt><dd>R²(log) 0.921 and 7.8% MAPE out of fold, an event-driven AWS pipeline that shuts itself down at under US$0.05 per run, and 197 tests in CI.</dd></dl></details>
         <div class="project-tags">
