@@ -290,6 +290,47 @@
     }
     .project-link:hover { gap: .7rem; }
 
+    /* ── PROJECT RESULTS ── */
+    .results {
+      margin: 0 0 1rem; padding: .85rem .9rem .7rem;
+      background: var(--light); border: 1px solid var(--border); border-radius: 10px;
+    }
+    .results-head {
+      display: flex; flex-wrap: wrap; align-items: baseline;
+      justify-content: space-between; gap: .2rem .6rem; margin-bottom: .7rem;
+    }
+    .results-title {
+      font-family: 'DM Mono', monospace; font-size: .63rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--blue);
+    }
+    .results-note { font-size: .63rem; color: var(--gray); }
+    .results-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .6rem .75rem; margin-bottom: .8rem;
+    }
+    .result { border-left: 2px solid rgba(59,158,232,.45); padding-left: .55rem; }
+    .result-value {
+      display: block; font-family: 'DM Serif Display', serif;
+      font-size: 1.12rem; line-height: 1.05; color: var(--navy); white-space: nowrap;
+    }
+    .result-name {
+      display: block; margin-top: .15rem; font-size: .64rem;
+      line-height: 1.3; color: var(--gray);
+    }
+    .results-chart-title {
+      font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .04em;
+      color: var(--gray); margin-bottom: .25rem;
+    }
+    .results-figure { margin: 0; }
+    .results-figure svg { display: block; width: 100%; height: auto; }
+    .results-figure figcaption {
+      margin-top: .3rem; font-size: .63rem; line-height: 1.45; color: var(--gray);
+    }
+    .results-foot {
+      margin-top: .5rem; padding-top: .5rem; border-top: 1px dashed var(--border);
+      font-size: .63rem; line-height: 1.5; color: var(--gray);
+    }
+
     /* ── EXPERIENCE ── */
     #experience { background: #fff; }
     .exp-container { max-width: 750px; margin: 0 auto; }
@@ -771,7 +812,48 @@
         </div>
         <h3 class="project-name">SAVI — Autonomous Real-Estate Valuation Agent</h3>
         <p class="project-desc">Reinforcement learning decides when a lender can trust an automatic valuation: APPROVE, human REVIEW, or REJECT. v1–v2 were a team project for our Machine Learning course (with Valeria Larea, Nicolás Garzón and Juan Niño). For v3 I worked alone: audited v2, rebuilt the dataset from real public sources, and re-engineered it as an event-driven AWS pipeline (S3 → Lambda → EC2 → SageMaker) with a RAG agent and web app on a public URL. Results are reported honestly, including where RL does not beat the baseline.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">R²(log) 0.921 · MAPE 7.8% · 197 tests · &lt;US$0.05 per run</div>
+        <div class="results" role="group" aria-labelledby="saviResultsTitle">
+          <div class="results-head">
+            <span class="results-title" id="saviResultsTitle">Results · SAVI v2 · team</span>
+            <span class="results-note">20,203 properties · 81 features</span>
+          </div>
+          <div class="results-grid">
+            <div class="result"><span class="result-value">0.9609</span><span class="result-name">Test R² (log) · XGBoost</span></div>
+            <div class="result"><span class="result-value">$26,752</span><span class="result-name">MAE on test</span></div>
+            <div class="result"><span class="result-value">$41,890</span><span class="result-name">RMSE on test</span></div>
+            <div class="result"><span class="result-value">0.9589</span><span class="result-name">Test R² (log) · LightGBM</span></div>
+          </div>
+          <p class="results-chart-title">Test R² (log) by model</p>
+          <figure class="results-figure">
+            <svg viewBox="0 0 300 112" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="saviChartTitle saviChartDesc">
+              <title id="saviChartTitle">SAVI v2 test R-squared by model</title>
+              <desc id="saviChartDesc">XGBoost 0.9609 and LightGBM 0.9589, well above the 0.75 of the earlier LightGBM C2 checkpoint.</desc>
+              <g font-family="DM Sans, sans-serif" font-size="11.5" fill="#1A2A3F">
+                <text x="0" y="18">XGBoost</text>
+                <text x="0" y="46">LightGBM</text>
+                <text x="0" y="74">LightGBM C2</text>
+              </g>
+              <g>
+                <rect x="102" y="6" width="151.8" height="16" rx="2.5" fill="#3B9EE8"/>
+                <rect x="102" y="34" width="151.5" height="16" rx="2.5" fill="#2C6FAC"/>
+                <rect x="102" y="62" width="118.5" height="16" rx="2.5" fill="#AFC2D8"/>
+              </g>
+              <g font-family="DM Mono, monospace" font-size="10.5" fill="#0F1E35">
+                <text x="259" y="18">0.9609</text>
+                <text x="258.5" y="46">0.9589</text>
+                <text x="225.5" y="74">0.75</text>
+              </g>
+              <line x1="102" y1="86" x2="260" y2="86" stroke="#D5E2F0" stroke-width="1"/>
+              <g font-family="DM Mono, monospace" font-size="9.5" fill="#5A6B85">
+                <text x="102" y="99" text-anchor="middle">0</text>
+                <text x="181" y="99" text-anchor="middle">0.5</text>
+                <text x="260" y="99" text-anchor="middle">1.0</text>
+              </g>
+            </svg>
+            <figcaption>Test split from the v2 team report; axis starts at 0. C2 is the previous course checkpoint.</figcaption>
+          </figure>
+          <p class="results-foot">Team: Julian Rincón, Valeria Larea, Nicolás Garzón and Juan Niño. Source: SAVI_v2_ParcialFinal.html. A v3 audit found 93% of v2 rows were assessor records, so v3 was rebuilt on real sales (R²(log) 0.921).</p>
+        </div>
         <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>The team model looked great on paper. When I audited it, 93% of the dataset turned out to be assessor records padded with constant columns, so the score said little about real sales.</dd><dt>What I decided</dt><dd>Throw the data out and rebuild it from public sources: 2,930 real sales joined to 18,078 parcels, with FHFA and Zillow indices. Then evaluate once on a held-out test with 95% bootstrap intervals, and report where RL does not beat the baseline.</dd><dt>The result</dt><dd>R²(log) 0.921 and 7.8% MAPE out of fold, an event-driven AWS pipeline that shuts itself down at under US$0.05 per run, and 197 tests in CI.</dd></dl></details>
         <div class="project-tags">
           <span class="project-tag">XGBoost</span>
@@ -793,7 +875,51 @@
         </div>
         <h3 class="project-name">Sentiment140 Lab</h3>
         <p class="project-desc">Team of five for our NLP course. Preprocessing, representation and classifier compared stage by stage under a fixed, seeded protocol tracked in MLflow; the champion (TF-IDF unigrams+bigrams with logistic regression) was retrained on 1.36M tweets, evaluated once on test, registered in the Model Registry and served by a public FastAPI on EC2. I ran the tracking server, the API and the audit notebook.</p>
-        <div class="project-tag" style="margin-bottom:.75rem;display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.2);padding:.25rem .6rem;border-radius:5px;">test macro-F1 0.824 · MLflow registry</div>
+        <div class="results" role="group" aria-labelledby="sentResultsTitle">
+          <div class="results-head">
+            <span class="results-title" id="sentResultsTitle">Results · Sentiment140 Lab</span>
+            <span class="results-note">1.36M train · 240K test</span>
+          </div>
+          <div class="results-grid">
+            <div class="result"><span class="result-value">0.8244</span><span class="result-name">Test macro-F1</span></div>
+            <div class="result"><span class="result-value">82.4%</span><span class="result-name">Test accuracy</span></div>
+            <div class="result"><span class="result-value">0.8006</span><span class="result-name">Final CV macro-F1 · 300K vocab</span></div>
+            <div class="result"><span class="result-value">42,142</span><span class="result-name">Errors on 240K test</span></div>
+          </div>
+          <p class="results-chart-title">3-fold CV macro-F1 by representation</p>
+          <figure class="results-figure">
+            <svg viewBox="0 0 300 124" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sentChartTitle sentChartDesc">
+              <title id="sentChartTitle">Sentiment140 cross-validation macro-F1 by text representation</title>
+              <desc id="sentChartDesc">BoW 0.7814, TF-IDF unigrams 0.7879, TF-IDF unigrams plus bigrams 0.7998, and spaCy vectors 0.6778.</desc>
+              <g font-family="DM Sans, sans-serif" font-size="11.5" fill="#1A2A3F">
+                <text x="0" y="13">BoW (B0)</text>
+                <text x="0" y="37">TF-IDF uni</text>
+                <text x="0" y="61">TF-IDF uni+bi</text>
+                <text x="0" y="85">spaCy</text>
+              </g>
+              <g>
+                <rect x="102" y="2" width="145.3" height="14" rx="2.5" fill="#8FA6BF"/>
+                <rect x="102" y="26" width="146.5" height="14" rx="2.5" fill="#2C6FAC"/>
+                <rect x="102" y="50" width="148.7" height="14" rx="2.5" fill="#3B9EE8"/>
+                <rect x="102" y="74" width="126" height="14" rx="2.5" fill="#AFC2D8"/>
+              </g>
+              <g font-family="DM Mono, monospace" font-size="10.5" fill="#0F1E35">
+                <text x="252.3" y="13">0.7814</text>
+                <text x="253.5" y="37">0.7879</text>
+                <text x="255.7" y="61">0.7998</text>
+                <text x="233" y="85">0.6778</text>
+              </g>
+              <line x1="102" y1="98" x2="260" y2="98" stroke="#D5E2F0" stroke-width="1"/>
+              <g font-family="DM Mono, monospace" font-size="9.5" fill="#5A6B85">
+                <text x="102" y="111" text-anchor="middle">0</text>
+                <text x="176.4" y="111" text-anchor="middle">0.4</text>
+                <text x="250.7" y="111" text-anchor="middle">0.8</text>
+              </g>
+            </svg>
+            <figcaption>Same 3-fold protocol for all four representations; axis starts at 0. The final 300K-vocabulary run scored 0.8006. Source: DECISIONES.md.</figcaption>
+          </figure>
+          <p class="results-foot">Team of five. Test run: 1.36M training tweets, 240K held out (accuracy = 1 − 42,142/240,000). Sources: DECISIONES.md (CV and ablation), reports/error_analysis.md (test run).</p>
+        </div>
         <details class="case"><summary>How I built it</summary><dl><dt>The problem</dt><dd>1.6M tweets, five people and many ways to model them. With that many options, it is easy to end up choosing whatever happens to look best on the test set.</dd><dt>What I decided</dt><dd>Freeze seeded partitions first, compare preprocessing, representation and classifier stage by stage against a dummy baseline under cross-validation, log every run in MLflow, and touch the test set exactly once.</dd><dt>The result</dt><dd>TF-IDF unigrams and bigrams with logistic regression won after an ablation study, scored 0.824 macro-F1 on test, and was registered as the champion model and served by a public FastAPI on EC2, with an error analysis.</dd></dl></details>
         <div class="project-tags">
           <span class="project-tag">scikit-learn</span>
